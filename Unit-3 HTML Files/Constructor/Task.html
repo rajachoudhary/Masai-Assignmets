@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Linst</title>
+    <style>
+        .total{
+            display: flex;
+            margin: 20px 0;
+            font-size: 30px;
+        }
+        .total>div:nth-child(2){
+            margin-left: 30px;
+
+        }
+    </style>
+</head>
+<body id = "root">
+    <form id="taskForm">
+        <label for="tasks"> Task</label>
+        <input type="text" id="task">
+    </form>
+    <div class="total">
+        <div>Total Task</div>
+        <div id="totalTask">0</div>
+    </div>
+    <table border="1">
+      
+        <tr>
+            <th>Task</th>
+            <th>Date</th>
+            <th>status</th>
+            <th>Toggle Task</th>
+            <th>Done</th>
+            <th>Remove</th>
+        </tr>
+        
+    </table>
+    
+    <button id="submit">Submit</button>
+    <script>
+        
+       
+        var submit = document.getElementById("submit")
+        
+        var count = 0
+        var c = document.getElementById("totalTask")
+        submit.addEventListener('click', function(e){
+            e.preventDefault()
+            function taskInfo(task){
+
+                this.task = task
+                this.date = new Date().toString();
+                this.status = "False"
+                this.toggleTask = "Toggle Task"
+                this.done = "Done"
+                this.remove = "Remove"
+                
+
+                var table = document.querySelector("table")
+                var tr = document.createElement("tr")
+                var cell1 = document.createElement("td")
+                cell1.textContent = this.task
+                var cell2 = document.createElement("td")
+                cell2.textContent = this.date
+                var cell3 = document.createElement("td")
+                cell3.textContent = this.status 
+                var cell4 = document.createElement("td")
+                cell4.textContent = this.toggleTask
+                var cell5 = document.createElement("td")
+                cell5.textContent = this.done
+                var cell6 = document.createElement("td")
+                cell6.textContent = this.remove
+
+                c.textContent = ++count
+               
+                cell4.addEventListener("click" ,function(){
+                    cell3.textContent = "True"
+                })
+
+                cell5.addEventListener("click",function(e){
+                    var parent = e.target.parentNode
+                    parent.style.color = "green"
+                   
+                })
+
+                cell6.addEventListener("click",function(e){
+                    var parent = e.target.parentNode
+                    parent.remove()
+                    
+                    c.textContent = --count
+                })
+
+                tr.appendChild(cell1)
+                tr.appendChild(cell2)
+                tr.appendChild(cell3)
+                tr.appendChild(cell4)
+                tr.appendChild(cell5)
+                tr.appendChild(cell6)
+                table.appendChild(tr)
+
+                
+            }
+            
+
+
+            var a = new taskInfo(task.value)
+            document.getElementById("task").value = ""
+
+
+
+        })
+        
+    </script>
+</body>
+</html>
