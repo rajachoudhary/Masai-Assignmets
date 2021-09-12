@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The buttons color changes to a random value when it is clicked! But only two times!</h1>
+    <button id="ChangeBackgroundColor">Click here to change my color!</button>
+    <script>
+        var backgroundColor = document.getElementById("ChangeBackgroundColor")
+        var textSize =  document.getElementById("ChangeBackgroundColor")
+        function random(number){
+        return Math.floor(Math.random()*number);
+        }
+        var count = 2
+        function switchColor(){
+            var randomColor = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+            
+            if(count>0){
+                backgroundColor.style.backgroundColor = randomColor
+                count--   
+            } else {
+               backgroundColor.removeEventListener(backgroundColor)
+            }
+        }
+        
+
+        backgroundColor.addEventListener('click',switchColor)
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+       
+        .minMax{
+            display: flex;
+            width: 45%;
+            height: 150px;
+            display: flex;
+            margin:auto;
+            /* border: 1px solid black;; */
+        }
+        .minBox>input,.maxBox>input{
+            height: 100px;
+            width: 130px;
+            border: 2px solid black;
+            margin-left: 100px;
+            background-color: red;
+            font-size: 30px;
+            text-align: center;
+            
+        }
+        ::placeholder{
+            font-size: 50px;
+            color: black;
+        }
+        .maxBox>input{
+            margin-left: 250px;
+            background-color: green;
+        }
+        .minBox> p{
+            margin-left: 125px;
+            /* border: 3px solid black; */
+            margin-top: 0;
+            font-size: 40px;
+        }
+        .maxBox> p{
+            margin-left: 270px;
+            margin-top: 0;
+            font-size: 40px;
+        }
+        .inputField{
+            margin: auto;
+            width: 20%;
+            /* border: 3px solid black; */
+
+        }
+        .inputField>p{
+            margin: auto;
+            text-align: center;
+            font-size: 40px;
+        }
+        
+        .inputField >input{
+            /* padding: 20px; */
+            width: 300px;
+            height: 80px;
+            text-align: center;
+            padding-top: 15px;
+            border: 2px solid black;
+            /* margin-left: 45px; */
+            background-color: silver;
+            font-size: 40px;
+        }
+        .value{
+            width: 20%;
+            display: flex;
+            flex-wrap: wrap;
+
+            margin: auto;
+            margin-top: 50px;
+            /* border: 1px solid black; */
+
+        }
+        .value>div{
+            height: 50px;
+            width: 80px;
+            border: 2px solid black;
+            margin-left: 5%;
+            margin-bottom: 5%;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            /* margin-top: 10px; */
+            padding-top: 15px;
+        }
+        .green{
+            background-color: #668100;
+        }
+        .orange{
+            background-color: #FF6600;
+        }
+        .purple{
+            background-color: purple;
+            color: white; 
+        }
+        button{
+            width: 300px;
+            height: 70px;
+            text-align: center;
+            padding-top: 6px;
+            border: 2px solid black;
+            margin-left: 680px;
+            
+
+            background-color: silver;
+            font-size: 40px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="minMax">
+            <div class="minBox">
+                <input type="number" id="min" value="43" />
+                <p>MIN</p>
+            </div>
+            <div class="maxBox">
+                <input type="number" value="2019" id="max" />
+                <p>MAX</p>
+            </div>
+        </div>
+        <div class="inputField">
+            <p>Score</p>
+            <input type="number" id="number" placeholder="#" />
+        </div>
+        <div class="value">
+            <div class="green" onclick="a('1')" id="a1" >1</div>
+            <div class="orange" onclick="a('2')" id="a2">2</div>
+            <div class="green" onclick="a('3')" id="a3">3</div>
+            <div class="orange" onclick="a('4')" id="a4">4</div>
+            <div class="orange" onclick="a('5')" id="a5">5</div>
+            <div class="orange" onclick="a('6')" id="a6">6</div>
+            <div class="green" onclick="a('7')" id="a7">7</div>
+            <div class="orange" onclick="a('8')" id="a8">8</div>
+            <div class="green" onclick="a('9')" id="a9">9</div>
+            <div class="purple" onclick="a('0')" id="a0">0</div>
+        </div>
+        <button id="enter" onclick="enterFun()">Enter</button>
+    </div>
+    <script>
+      
+        function a(no){
+            document.getElementById("number").value+=no
+            
+        }
+        
+        function enterFun(){
+            var totalNo = document.getElementById("number").value
+            var minNo = document.getElementById("min").value
+            var maxNo = document.getElementById("max").value
+            
+            if(totalNo<minNo){
+                document.getElementById("min").value = document.getElementById("number").value
+                document.getElementById("number").value = ""
+            } 
+            else if(totalNo>minNo && totalNo<maxNo){
+               
+                document.getElementById("number").value = ""
+            }
+            else if (totalNo>maxNo){
+                document.getElementById("max").value = document.getElementById("number").value
+                document.getElementById("number").value = ""
+            }
+            
+            
+        }
+        
+    </script>
+</body>
+</html>

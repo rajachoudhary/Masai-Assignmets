@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hindu Layout</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .container{
+            width: 70%;
+            display: grid;
+            background-color: #f1ebeb;
+            /* border: 1px solid black; */
+            grid-gap: 20px;
+            margin: auto;
+        }
+        .left-cont{
+            grid-area: 1st-column;
+            width: 550px;
+            /* border: 1px solid black; */
+            
+        }
+        .left-cont>div:nth-child(1){
+            /* background-color: 5px solid black; */
+            background-color: #08345B;
+            height: 500px;
+            grid-area: e;
+        }
+        h2,h5{
+            color: white;
+        }
+        h2{
+            margin: 15px;
+        }
+        h5{
+            margin: 5px 0 10px 15px;
+        }
+        .left-cont > div:nth-child(1)>p{
+            color: #748492;
+            margin-left: 15px;
+           
+        }
+        .left-cont>div:nth-child(1)>img{
+            width: 100%;
+            height: 250px;
+            /* border: 1px solid black; */
+        }
+        
+        .left-cont>div:nth-child(2){
+            display: flex;
+            /* border: 1px solid black; */
+            margin-top: 3%;
+            background-color: white;
+        }
+        .left-cont>div:nth-child(2)>img, .right-cont>div>img{
+            width: 25%;
+            height: 150px;
+            /* border: 1px solid black; */
+            display: flex;
+        }
+        .left-cont>div:nth-child(2)>div{
+            margin-left: 10px;
+        }
+        .left-cont>div:nth-child(2)>div>p,.right-cont>div>div>p{
+            margin: 0 5px;
+        }
+        .left-cont>div:nth-child(2)>div>h3,.right-cont>div>div>h3{
+            margin: 3px 5px;
+        }
+        .right-cont>div{
+            display: flex;
+            margin-bottom: 4%;
+            background-color: white;
+        }
+
+        .right-cont{
+            /* display: grid; */
+            grid-area: 2nd-column;
+            /* border: 1px solid black; */
+            width: 550px;
+        }
+        .national2{
+            grid-area: a;
+        }
+        .national3{
+            grid-area: b;
+        }
+        .national4{
+            grid-area: c;
+        }
+        .national5{
+            grid-area: d;
+        }
+        
+        @media screen and (min-width:600px) {
+            .container{
+                /* width: 100%; */
+                grid-template-areas: '1st-column'
+                                        '2nd-column';
+            }
+            .left-cont,.right-cont{
+                width: 100%;
+            }
+        }
+        @media screen and (min-width:768px) {
+            .container{
+                 grid-template: "a a a" 40px "b c c" 40px "b c c" 40px / 1fr 1fr 1fr;;
+
+            }  
+            
+         }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-cont">
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRY7ADmjs0aFqZ53_C5OIvlLxxJmBocS716A&usqp=CAU"/>
+                <h2>Ahmedabad joint rally with Trump will be historic, says Modi</h2>
+                <h5>KALLOL BHATTACHERJEE</h5>
+                <h5>SHASINI HAIDER</h5>
+                <p>U.S President to visit Sabarmati Ashram ahead of 'Namaste Trump' event </p>
+            </div>
+            <div class="national1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRY7ADmjs0aFqZ53_C5OIvlLxxJmBocS716A&usqp=CAU"/>
+                <div>
+                    <h3>National</h3>
+                    <p>Ahmedabad glittters to welcome Donald Trump</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-cont">
+            <div class="national2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRY7ADmjs0aFqZ53_C5OIvlLxxJmBocS716A&usqp=CAU"/>
+                <div>
+                    <h3>National</h3>
+                    <p>Ahmedabad glittters to welcome Donald Trump</p>
+                </div>
+            </div>
+            <div class="national3">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRY7ADmjs0aFqZ53_C5OIvlLxxJmBocS716A&usqp=CAU"/>
+                <div>
+                    <h3>National</h3>
+                    <p>Ahmedabad glittters to welcome Donald Trump</p>
+                </div>
+            </div>
+            <div class="national4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRY7ADmjs0aFqZ53_C5OIvlLxxJmBocS716A&usqp=CAU"/>
+                <div>
+                    <h3>National</h3>
+                    <p>Ahmedabad glittters to welcome Donald Trump</p>
+                </div>
+            </div>
+            <div class="national5">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRY7ADmjs0aFqZ53_C5OIvlLxxJmBocS716A&usqp=CAU"/>
+                <div>
+                    <h3>National</h3>
+                    <p>Ahmedabad glittters to welcome Donald Trump</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

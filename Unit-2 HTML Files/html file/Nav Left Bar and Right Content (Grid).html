@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Template</title>
+    <style>
+        .layout{
+            width: 70%;
+            display: grid;
+            grid-gap: 20px;
+            margin: auto;
+        }
+        .red-bar{
+            grid-area: red-bar;
+            background-color: red;
+            width: 100%;
+            height: 120px;
+        }
+        .green-bar{
+            grid-area: green-bar;
+            background-color: green;
+            height:700px ;
+            width: 300px;
+        }
+        .teal-bar{
+            grid-area: teal-bar;
+            background-color: teal;
+            height:700px ;
+            width: 900px;
+        }
+
+        @media screen and (min-width:992px) {
+            .layout{
+                grid-template-areas: 'red-bar red-bar'
+                                    'green-bar teal-bar ';
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="red-bar"></div>
+        <div class="green-bar"></div>
+        <div class="teal-bar"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex{
+            width: 800px;
+            margin: auto;
+            display: flex;
+            border: 1px solid black;
+        }
+        .flex>div{
+            height: 150px;
+            flex-basis: 150px;
+            margin: 10px;
+            background-color: teal;
+            border-radius: 10px;
+        }
+        .flex > .large{
+            flex-grow: 2;
+        }
+        .grid{
+            display: grid;
+            grid-template-rows: repeat(4,200px);
+            grid-template-columns: repeat(4,200px);
+            gap: 20px;
+        }
+        .grid > div{
+            background-color: teal;
+            font-size: 30px;
+            border-radius: 10px;
+        }
+        .grid > div:nth-child(8){
+            grid-row-start: 3;
+        }
+        .grid>div:nth-child(9){
+            grid-row-start: 3;
+            grid-column-start:2;
+        }
+        .grid>div:nth-child(10){
+            grid-row-start: 4;
+        }
+        .layout{
+            display: grid;
+            gap: 20px;
+        }
+        #top{
+            background-color: yellow;
+            grid-area:nav;
+            height: 80px;
+        }
+        #left{
+            background-color: green;
+            grid-area: left-b;
+            height: 400px;
+        }
+        #right{
+            background-color: blue;
+            grid-area: right-b;
+            height: 400px;
+        }
+        @media screen and (max-width:600px) {
+            .layout{
+                grid-template-areas: 'nav'
+                                    'right-b'
+                                    'left-b';
+            }
+            
+        }
+        @media screen and (min-width:600px) {
+            .layout{
+                grid-template-areas: 'nav nav'
+                                    'left-b right-b';
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div></div>
+        <div class="large"></div>
+        <div></div>
+    </div>
+    <div class="flex">
+        <div class="large"></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="flex">
+        <div></div>
+        <div></div>
+        <div class="large"></div>
+    </div>
+    <div class="grid">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+    </div>
+    <div class="layout">
+        <div id="top">NAV</div>
+        <div id="left">LEFT</div>
+        <div id="right">RIGHT</div>
+    </div>
+</body>
+</html>

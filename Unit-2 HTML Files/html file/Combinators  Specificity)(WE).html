@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Combinators</title>
+        <style>
+            body > div:nth-child(1){
+                width:1200px;
+               margin: auto;
+                
+            }
+            #dis-form,#reg-form{
+                width: 500px;
+                margin: 50px;
+                float: left;
+            }
+            label, input{
+                display: block;
+                width: 500px;
+            }
+            label{
+                font-size: 24px;
+                margin-bottom: 5px;
+                width: 400px;
+            }
+            input{
+                font-size: 35px;
+                width: 400px;
+            }
+            input + label{
+                margin-top: 15px;
+            }
+            input + p{
+                color: red;
+                font-size: 20px;
+                width: 450px;
+            }
+            #reg-form > input[type="submit"]{
+                background-color: black;
+                color: white;
+                padding: 6px;
+                font-size: 24px;
+            }
+            #dis-form > p:nth-child(odd){
+                font-size: 23px;
+                margin-bottom: 4px;
+                width: 350px;
+            }
+            #dis-form > p:nth-child(even){
+                font-size: 32px;
+                margin-bottom: 20px;
+                margin-top: 4px;
+            }
+            #dis-form > p:nth-child(2){
+                font-size: 56px;
+            }
+            #dis-form{
+                margin: 50px;
+                width: 300px;
+                background-color: black;
+                color: white;
+                padding: 50px;
+            }
+            #food-card{
+                width: 550px;
+                height: 600px;
+                background-color: #322F30;
+                margin: auto;
+                color: blanchedalmond;
+            }
+            #food-card > div{
+                margin: auto;
+                text-align: center;
+                margin-top: 30px;
+            }
+            div > h2{
+                margin-bottom: 0px;
+                color: white !important;
+            }
+            h2 + h2{
+                margin-top: 5px;
+            }
+            #food-card > div > :nth-child(2){
+                color:#a7043b;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            #food-card > div > :nth-child(1){
+                font-size: 20px;
+            }
+            .white-line{
+                width: 60px;
+                height: 5px;
+                background-color: white;
+                border-radius: 10px;
+                /* margin-top: 15px; */
+            }
+            #food-card ,input{
+                padding-top: 5px;
+            }
+            #food-card > input[type="submit"]{
+                background-color: #a7043b;
+                color: white;
+                padding: 6px;
+                font-size: 24px;
+                margin: auto;
+                margin-top: 40px;
+                border-radius: 20px;
+                border: none;
+            }
+
+        </style>
+        <body>
+            <div>
+                <div id="reg-form">
+                    <form>
+                        <label for="name">NAME</label>
+                        <input type="text" id="name"/>
+                        <label for="email">EMAIL</label>
+                        <input type="text" id="email"/>
+                        <label for="mobile">MOBILE</label>
+                        <input type="tel" id="mobile"/>
+                        <p>Enter a valid mobile</p>
+                        <input type="submit" value="SUBMIT"/>
+                    </form>
+                </div>
+                <div id="dis-form">
+                    <p>NAME</p>
+                    <p>MASAI</p>
+                    <p>EMAIL</p>
+                    <p>email@masaischool.com</p>
+                    <p>MOBILE</p>
+                    <p>9876543210</p>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="food-card">
+                <div>
+                    <h2>Today Sun,26<sup>th</sup>Apr</h2>
+                    <h2>Schedule -7:00 AM onwards</h2>
+                </div>
+                <div>
+                    <div>Parathe Sharathe with</div>
+                    <div>Chef Archana Doshi</div>
+                </div>
+                <div class="white-line"></div>
+                <div>
+                    <div>Spices and Immunity with</div>
+                    <div>Nutrition Expert Manasa Rajan</div>
+                </div>
+                <div class="white-line"></div>
+                <div>
+                    <div>Psotman Vegetables with</div>
+                    <div>Chef Jason D'Souza</div>
+                </div>
+                <input type="submit" value="SIGN UP NOW"></input>
+            </div>
+        </body>
+    </head>
+</html>
