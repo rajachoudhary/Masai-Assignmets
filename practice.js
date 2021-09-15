@@ -29,14 +29,78 @@
 // console.log(arr)
 // // console.log(MyArray)
 
-function Person(name,age,profession){
-    this.name= name
-    this.age = age
-    this.profession = profession
+// function Person(name,age,profession){
+//     this.name= name
+//     this.age = age
+//     this.profession = profession
+// }
+// Person.prototype.greet = function(user){
+//     console.log("Hey",user,"I am",this.name)
+// }
+// var person = new Person("Raja",23,"Coder")
+// console.log(person.__proto__)
+// console.log(Person.prototype)
+
+// console.log(2/1)]
+
+
+
+
+// function MyArray(){
+    
+//     Object.defineProperty(this,"length",{
+//         value:0,
+//         writable:true ,
+
+//     })
+// }
+// PUSH
+// MyArray.prototype.push = function(value){
+//     this[this.length] = value;
+//     this.length++
+//     // console.log(this)
+//     return this.length; 
+// }
+// //MAP
+// MyArray.prototype.map = function(callback){
+//     var  result = new MyArray()
+//     // for(var index in this){
+//     //     if(this.hasOwnProperty(index)){
+//     //         var returnElement = callback(this[index]);
+//     //         result.push(returnElement)
+//     //     }
+//     // }
+//     // return result;
+//     console.log(result)
+// }
+// var arr = new MyArray();
+// arr.push(5)
+// arr.push(10)
+// // console.log(arr,arr.length)
+
+// // let res = arr.map(function (el){
+// //     return el*el
+// // })
+// // console.log(res)
+
+function Person(name, age, profession) {
+    this.name = name;
+    this.age = age;
+    this.profession = profession;
+    
 }
-Person.prototype.greet = function(user){
-    console.log("Hey",user,"I am",this.name)
+
+Person.prototype.greet = function(user) {
+    console.log(`hey ${user}, I am ${this.name}`);
 }
-var person = new Person("Raja",23,"Coder")
-console.log(person.__proto__)
-console.log(Person.prototype)
+
+function Coder(name, age,) {
+    Person.call(this, name, age, "Coder");
+    
+}
+
+Coder.prototype = Object.create(Person.prototype)
+var coder = new Coder("Nrupul",24);
+console.log(coder)
+coder.greet("Albert")
+console.log(coder.__proto__.__proto__)
