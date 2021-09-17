@@ -105,10 +105,32 @@
 // coder.greet("Albert")
 // console.log(coder.__proto__.__proto__)
 
-var person = {
-    name: "Raju",
-    nationality: "Indian"
+// var person = {
+//     name: "Raju",
+//     nationality: "Indian"
+// }
+// var child = Object.create(person)
+// child.name  = "Manu"
+// console.log(child.__proto__)
+// var stri = "rajas"
+// console.log(stri)
+// var greet = function(){
+//     console.log(stri)
+//     var str = "sonu"
+//     console.log(str)
+// }
+// greet()
+//  console.log(greet.__proto__ ) 
+
+function a(){
+    function b(){
+        console.log(x)
+        function c(){
+            var x = 10
+        }
+        c()
+    }
+    b()
 }
-var child = Object.create(person)
-child.name  = "Manu"
-console.log(child.__proto__)
+a()
+console.log(x)
