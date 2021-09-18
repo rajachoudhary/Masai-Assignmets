@@ -2,14 +2,14 @@ let todo = [];
 function handleAdd(){
     //retrive input text
     const text = document.getElementById("input").value;
-    if(!text){
-        alert('type something')
-        return;
-    }
+    // if(!text){
+    //     alert('type something');
+    //     return;
+    // }
     const payload = {
         title: text,
         status:false
-    }
+    };
     todo.push(payload);
     localStorage.setItem("todos",JSON.stringify(todo));
     //update the ui
@@ -18,12 +18,12 @@ function handleAdd(){
 
 }
 
-function displayTodos(todo, container){
+function displayTodos(todos, container){
     let ul = document.createElement("ul")
-    container.innerHTML = " "
-    for (let i = 0; i <todo.length; i++) {
+    container.innerHTML = ""
+    for (let i = 0; i <todos.length; i++) {
         let li = document.createElement("li")
-        li.textContent = `${todos[i]}.title} - ${todos[i].status?"DONE":"pending"}`
+        li.textContent = `${todos[i].title} - ${todos[i].status?"DONE":"pending"}`
         ul.appendChild(li)
     }
     container.append(ul)
@@ -35,7 +35,7 @@ function handleLoad() {
     //* if null, then
     if(data){
         todo = data
-        displayTodos(todo, container)
+        displayTodos(data, container)
     }
 }
 
@@ -49,9 +49,9 @@ window.addEventListener("load",function(){
     handleLoad()
 })
 
-function(){
+function handleRemove(){
     todo = []
-    localStorage.setItem("todos",JSON.stringify(todos))
+    localStorage.setItem("todos",JSON.stringify(todo))
     const container = document.getElementById("task-list")
     container.innerHTML = ""
 }
