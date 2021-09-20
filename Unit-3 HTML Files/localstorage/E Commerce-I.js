@@ -1,4 +1,4 @@
-let arr = []
+ let arr = []
 
 
 let btn = document.getElementById("submit")
@@ -27,12 +27,13 @@ function handleAdd(e){
 
 function display(list, div){
 
-    let  divContent = document.createElement('div')
-    divContent.innerHTML = ""
+    const  divContent = document.createElement('div')
+    div.innerHTML = ""
 
     let divs ;
-    for(let i = 0; i <= list.length; i++){
-         divs = document.createElement('div')
+    for(let i = 0; i < list.length; i++){
+        
+        divs = document.createElement('div')
         let h2 = document.createElement('h2')
         h2.textContent = `${list[i].name}`
         
@@ -46,10 +47,10 @@ function display(list, div){
        divs.appendChild(img)
        divs.appendChild(h23)
     }
-     divContent.appendChild(divs)
+   divContent.appendChild(divs)
     div.appendChild(divContent)
 
-    // div.setAttribute('class',"card")
+    // divContent.setAttribute('class',"card")
   
 }
 
@@ -57,10 +58,13 @@ function display(list, div){
 
 window.addEventListener("load",function(){
     let onScreen = JSON.parse( localStorage.getItem("list"))
-       arr = onScreen  
-
+    //   arr = onScreen  
     const div = document.getElementById("lists")
-    display(arr, div)
+    if(onScreen){
+        arr = onScreen
+        const div = document.getElementById("lists")
+        display(arr,div)
+    }
    
 
 })

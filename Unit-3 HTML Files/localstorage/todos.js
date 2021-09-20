@@ -11,7 +11,7 @@ function handleAdd(){
         status:false
     };
     todo.push(payload);
-    localStorage.setItem("todos",JSON.stringify(todo));
+    // localStorage.setItem("todos",JSON.stringify(todo));
     //update the ui
     const container = document.getElementById("task-list")
     displayTodos(todo, container);
@@ -32,7 +32,7 @@ function displayTodos(todos, container){
 function handleLoad() {
     const data = JSON.parse(localStorage.getItem("todos"))
     const container = document.getElementById("task-list")
-    //* if null, then
+    // * if null, then
     if(data){
         todo = data
         displayTodos(data, container)

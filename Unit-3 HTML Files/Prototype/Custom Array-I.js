@@ -3,8 +3,6 @@ function MyArray(){
     Object.defineProperty(this,"length",{
         value:0,
         writable:true ,
-        
-
     })
     
 }
