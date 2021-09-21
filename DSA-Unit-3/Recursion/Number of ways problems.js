@@ -8,7 +8,7 @@ function NoOfWays(input){
     } else {
 
        return NoOfWays(input-1) + NoOfWays(input-2) + NoOfWays(input-3)
-        console.log(object)
+        
     }
 }
 

@@ -13,7 +13,8 @@ function handleAdd(e){
         let details = {
             name : userName,
             url : urls,
-            price : prices, 
+            price : prices,
+           
         } 
 
     arr.push(details)
@@ -21,59 +22,97 @@ function handleAdd(e){
     const div = document.getElementById("lists")
     
     display(arr,div)
-    // console.log(div)
+    
 }
   
 
 function display(list, div){
-
+   
     const  divContent = document.createElement('div')
-    div.innerHTML = ""
-
+    
     let divs ;
+   
     for(let i = 0; i < list.length; i++){
         
         divs = document.createElement('div')
-        let h2 = document.createElement('h2')
-        h2.textContent = `${list[i].name}`
+        let h4 = document.createElement('h4')
+        h4.textContent = list[i].name
         
         var img = document.createElement('img')
         img.src = `${list[i].url}`
         
-        let h23 = document.createElement('h2')
-        h23.textContent = `${list[i].price}`
+        let h5 = document.createElement('h5')
+        h5.textContent =  (`Price : ${list[i].price}`)
 
-       divs.appendChild(h2)
-       divs.appendChild(img)
-       divs.appendChild(h23)
+        divs.appendChild(h4)
+        divs.appendChild(img)
+        divs.appendChild(h5)
+        
     }
-   divContent.appendChild(divs)
-    div.appendChild(divContent)
+    let btns = document.createElement('button')
+    btns.textContent = "Add To Cart"
+    divs.appendChild(btns)
 
-    // divContent.setAttribute('class',"card")
-  
-}
+    divContent.appendChild(divs)
+    div.appendChild(divs)
+    btns.setAttribute("class","btn btn-success")
+    // divs.getAttribute('class',"card")
+    
+}   
 
 
 
-window.addEventListener("load",function(){
-    let onScreen = JSON.parse( localStorage.getItem("list"))
-    //   arr = onScreen  
-    const div = document.getElementById("lists")
-    if(onScreen){
-        arr = onScreen
-        const div = document.getElementById("lists")
-        display(arr,div)
+
+let count = 0
+let arr1 = []
+    function handleLoad(){
+        let onScreen = JSON.parse( localStorage.getItem("list"))
+        
+        if(onScreen){
+
+            arr = onScreen
+            let mainDiv ;
+
+            for(let i = 0; i < onScreen.length; i++){
+
+                const div = document.getElementById("lists")
+                let data = onScreen[i]
+                mainDiv = document.createElement('div')
+
+                let h4 = document.createElement("h4")
+                h4.textContent = data.name
+                mainDiv.appendChild(h4)
+                
+                let img = document.createElement("img")
+                img.src = data.url
+                mainDiv.appendChild(img)
+                
+                let h51 = document.createElement("h5")
+                h51.textContent = "Price :"+" "+ data.price
+                mainDiv.appendChild(h51)
+
+                let btns = document.createElement('button')
+                btns.textContent = "ADD TO CART"
+                mainDiv.appendChild(btns)
+                btns.setAttribute("class","btn btn-success")
+
+                div.appendChild(mainDiv)
+
+                count++
+                arr1.push(count)
+                
+            }   
+             
+        }
+       
     }
-   
 
-})
 
 window.addEventListener("load", function(){
     
     btn.addEventListener("click", handleAdd)
    
-    // handleLoad()
+    handleLoad()
 })
 
 

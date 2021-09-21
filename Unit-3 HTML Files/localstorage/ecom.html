@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECommerce</title>
+</head>
+<body>
+    <table>
+    <form>
+                <tr><td><label for="name">Name</label></td>
+               <td><input type="text" id="name"/></td></tr>
+               <tr><td><label for="url">Enter an Image URL:</label></td>
+
+                  <td>  <input type="url" name="url" id="url"
+                placeholder="https://example.com"
+                pattern="https://.*" size="30"
+                required></td></tr>
+                    <tr>
+                        <td><label for="price">Price</label></td>
+                        <td><input type="number" id="price" required></td>
+                    </tr>
+                    <tr><td><button id="btn">Add to Cart</button></td></tr>
+                   <div id="display"></div>
+</form>
+</table>
+<script>
+              var arr=[];
+           var display = document.getElementById("display");
+          
+            function handleAdd(e){
+                e.preventDefault();
+                
+                
+                var names = document.getElementById("name").value;
+                var urls = document.getElementById("url").value;
+                var prices = document.getElementById("price").value;
+              
+               
+             var details = {
+                 name :names,
+                 url : urls,
+                 price : prices
+
+             }
+             arr.push(details);
+             localStorage.setItem("list", JSON.stringify(arr));
+             var ele = document.createElement('div');
+            displays(arr,display);
+
+            }
+            
+            function displays(arr,display){
+                
+                var row = document.createElement("ul");
+                row.textContent = ""
+                for(var i=0; i<arr.length; i++){
+                    var col1 = document.createElement("li")
+                    
+                    col1.textContent = arr[i].name;
+                    console.log(col1);
+    
+                    col1.append(row);
+                    
+                }
+                row.append(display);
+
+            }
+
+            function handleload(){
+              var item1 = JSON.parse(localStorage.getItem('list'));
+                if(arr){
+                    arr =item1;
+                    displays(arr,item1);
+                }
+            }
+
+            window.addEventListener("load",function(){
+                var btn = document.getElementById("btn");
+                btn.addEventListener("click",handleAdd);
+                handleload();
+            
+            })
+
+</script>
+</body>
+</html>

@@ -9,31 +9,60 @@
     <title>Document</title>
     <style>
         img{
-            height:150px;
-            width:150px;
+            height:200px;
+            width:200px;
+            justify-content: center;
         }
+        #lists{
+            border: 1px solid grey;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #lists>div{
+            margin: 50px;
+            
+        }
+        #lists>div>button{
+            padding: auto;
+            font-size:20px;
+            
+        }
+        h3,h4,h5{
+            text-align: center;
+            width:90%
+        }
+        
         .card{
-            border: 1px solid black;
+            background-color:gray
         }
+        btn-success{
+            justify-content: center;
+            /* margin: auto; */
+            border: 10px solid black;
+            
+        }
+        
     </style>
 </head>
 <body>
-    <form action="container" class="col-3 m-auto card">
+    <form action="container" class="col-3 m-auto card p-3 my-5">
         <div class="row ">
-            <label for="name">Username</label>
+            <label for="name" class="lead">Username</label>
             <input type="text"id="name" placeholder="Username">
         </div>
-        <div class="row ">    
-            <label for="url" placeholder="URL" >Enter URL</label>
+        <div class="row mt-3">    
+            <label for="url" placeholder="URL" class="lead">Enter URL</label>
             <input type="url"id="url" placeholder="https://example.com">
         </div>
-        <div class="row ">
-            <label for="price">Price</label>
-            <input type="number" id="price" placeholder="">
+        <div class="row mt-3">
+            <label for="price" class="lead">Price</label>
+            <input type="text" id="price" placeholder="">
         </div>
+        <button type="button" id="submit" class="btn btn-danger btn-lg mt-3">Submit</button>
     </form>
-    <button type="button" id="submit" class="btn btn-danger text-center">Submit</button>
-    <div id = "lists" ></div>
+    <div id = "lists" class="container my-5"></div>
+    
 
     <script type="text/javascript" src="E Commerce-I.js"></script>
 </body>
