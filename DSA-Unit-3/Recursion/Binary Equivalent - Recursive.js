@@ -31,3 +31,5 @@ function runProgram(input){
 runProgram(`2
 15
 128`)
+
+console.log(Math.floor(1/2))

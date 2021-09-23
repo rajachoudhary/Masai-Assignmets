@@ -1,4 +1,4 @@
- let arr = []
+ var arr = []
 
 
 let btn = document.getElementById("submit")
@@ -63,49 +63,64 @@ function display(list, div){
 
 
 
-let count = 0
-let arr1 = []
-    function handleLoad(){
-        let onScreen = JSON.parse( localStorage.getItem("list"))
+    
+var arr1= []
+function handleLoad(){
+    let onScreen = JSON.parse( localStorage.getItem("list"))
+    
+    if(onScreen){
+
+        arr = onScreen
+        let mainDiv ;
+
+        for(let i = 0; i < onScreen.length; i++){
+
+            const div = document.getElementById("lists")
+            let data = onScreen[i]
+            mainDiv = document.createElement('div')
+
+            let h4 = document.createElement("h4")
+            h4.textContent = data.name
+            mainDiv.appendChild(h4)
+            
+            let img = document.createElement("img")
+            img.src = data.url
+            mainDiv.appendChild(img)
+            
+            let h51 = document.createElement("h5")
+            h51.textContent = "Price :"+" "+ data.price
+            mainDiv.appendChild(h51)
+
+            let btns = document.createElement('button')
+            btns.textContent = "ADD TO CART"
+            mainDiv.appendChild(btns)
+            btns.setAttribute("class","btn btn-success")
+
+            div.appendChild(mainDiv)
+
+            // count++
+            // arr1.push(count)
+
+            btns.addEventListener("click", function(event){
+                var target = event.currentTarget;
+                arr1.push(onScreen[i])
+               
+                localStorage.setItem("inCart",JSON.stringify(arr1))
+                
+            })
+            
+        }  
         
-        if(onScreen){
-
-            arr = onScreen
-            let mainDiv ;
-
-            for(let i = 0; i < onScreen.length; i++){
-
-                const div = document.getElementById("lists")
-                let data = onScreen[i]
-                mainDiv = document.createElement('div')
-
-                let h4 = document.createElement("h4")
-                h4.textContent = data.name
-                mainDiv.appendChild(h4)
-                
-                let img = document.createElement("img")
-                img.src = data.url
-                mainDiv.appendChild(img)
-                
-                let h51 = document.createElement("h5")
-                h51.textContent = "Price :"+" "+ data.price
-                mainDiv.appendChild(h51)
-
-                let btns = document.createElement('button')
-                btns.textContent = "ADD TO CART"
-                mainDiv.appendChild(btns)
-                btns.setAttribute("class","btn btn-success")
-
-                div.appendChild(mainDiv)
-
-                count++
-                arr1.push(count)
-                
-            }   
-             
-        }
        
+            
     }
+
+    
+}
+
+
+// arr1 = arr2
+
 
 
 window.addEventListener("load", function(){
@@ -115,7 +130,9 @@ window.addEventListener("load", function(){
     handleLoad()
 })
 
+// module.exports = {inCart};
 
+// document.writeln("<script type='text/javascript' src='E Commerce-II.js'></script>");
         
         
         

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="javascript" href="E Commerce-II.js">
+    <link rel="javascript" href="E Commerce-I.js">
     <title>Document</title>
     <style>
         img{
@@ -36,16 +38,22 @@
         .card{
             background-color:gray
         }
-        btn-success{
-            justify-content: center;
-            /* margin: auto; */
-            border: 10px solid black;
+        .btn-success{
+           text-align: center;
+           justify-content: center;
+           margin: auto;
+           border: 1px solid black;
             
+            
+        }
+        .btn-danger{
+            float: right;
         }
         
     </style>
 </head>
 <body>
+    <button type="button" id="cart" class="btn btn-danger me-3"><a href="E Commerce-II.html">Go to Cart</a></button>
     <form action="container" class="col-3 m-auto card p-3 my-5">
         <div class="row ">
             <label for="name" class="lead">Username</label>
@@ -65,5 +73,6 @@
     
 
     <script type="text/javascript" src="E Commerce-I.js"></script>
+    <script type="text/javascript" src="E Commerce-II.js"></script>
 </body>
 </html>
