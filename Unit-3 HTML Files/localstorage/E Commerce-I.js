@@ -1,6 +1,6 @@
  var arr = []
 
-
+ 
 let btn = document.getElementById("submit")
 
 function handleAdd(e){
@@ -10,12 +10,12 @@ function handleAdd(e){
     let prices = document.getElementById("price").value
     
    
-        let details = {
-            name : userName,
-            url : urls,
-            price : prices,
-           
-        } 
+    let details = {
+        name : userName,
+        url : urls,
+        price : prices,
+        
+    } 
 
     arr.push(details)
     localStorage.setItem('list',JSON.stringify(arr))
@@ -56,14 +56,10 @@ function display(list, div){
     divContent.appendChild(divs)
     div.appendChild(divs)
     btns.setAttribute("class","btn btn-success")
-    // divs.getAttribute('class',"card")
+    
     
 }   
-
-
-
-
-    
+  
 var arr1= []
 function handleLoad(){
     let onScreen = JSON.parse( localStorage.getItem("list"))
@@ -98,15 +94,13 @@ function handleLoad(){
 
             div.appendChild(mainDiv)
 
-            // count++
-            // arr1.push(count)
+       
 
             btns.addEventListener("click", function(event){
                 var target = event.currentTarget;
                 arr1.push(onScreen[i])
                
                 localStorage.setItem("inCart",JSON.stringify(arr1))
-                
             })
             
         }  
@@ -116,10 +110,10 @@ function handleLoad(){
     }
 
     
+    console.log(arr)
 }
 
 
-// arr1 = arr2
 
 
 
@@ -130,9 +124,6 @@ window.addEventListener("load", function(){
     handleLoad()
 })
 
-// module.exports = {inCart};
 
-// document.writeln("<script type='text/javascript' src='E Commerce-II.js'></script>");
-        
         
         

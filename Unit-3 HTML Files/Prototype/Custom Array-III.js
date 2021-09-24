@@ -30,6 +30,8 @@ arr.push(4)
 arr.push(5)
 arr.push(6)
 
+
 var re = arr.reverse(arr)
+arr = re
 console.log(arr,arr.length)
 console.log(arr[0])
