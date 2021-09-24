@@ -4,14 +4,23 @@
     // arr2.push(value)
      
     arr2.push(value)
-    console.log(arr2)
+    var count = 0
+    var totalPrice = 0
+    var tPrice = document.getElementById("price")
+    var noOfItems = document.getElementById("count")
     function load(){
         
         let mainDivs ;
         for(let i = 0; i < value.length; i++){
+
+            ++count
+            noOfItems.textContent = "Total Items" + " " + count
+
+
+
             let container = document.getElementById("container")
             let cartValue = value[i]
-            // console.log(value)
+            
             
              mainDivs = document.createElement('div')
            
@@ -26,6 +35,8 @@
             
             let h51 = document.createElement("h5")
             h51.textContent = "Price :"+" "+cartValue.price
+            totalPrice += Number(cartValue.price)
+            tPrice.textContent = "Total Price"+" "+totalPrice
             mainDivs.appendChild(h51)
 
             container.appendChild(mainDivs)
@@ -34,35 +45,7 @@
              
     }
     
-    // function loading(){
-    //     let onBrowser = JSON.parse( localStorage.getItem("inCart"))
-    //     console.log(onBrowser)
-    //     if(onBrowser){
-    //         arr2 = onBrowser
-    //         let mainDivs ;
-    //     for(let i = 0; i < onBrowser.length; i++){
-    //         let container = document.getElementById("container")
-           
-    //          mainDivs = document.createElement('div')
-           
 
-    //         let h2 = document.createElement("h4")
-    //         h2.textContent =onBrowser[i].name
-    //         mainDivs.appendChild(h2)
-            
-    //         let img1 = document.createElement("img")
-    //         img1.src =onBrowser[i].url
-    //         mainDivs.appendChild(img1)
-            
-    //         let h51 = document.createElement("h5")
-    //         h51.textContent = "Price :"+" "+onBrowser[i].price
-    //         mainDivs.appendChild(h51)
-
-    //         container.appendChild(mainDivs)
-            
-    //     }  
-    //     }
-    // }
      
     
     window.addEventListener("load", function(){
