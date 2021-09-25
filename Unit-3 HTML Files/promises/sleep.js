@@ -1,20 +1,32 @@
-function sleep(delay) {
+function task(delay) {
     return new Promise(function(resolve, reject) {
         if(typeof delay !== 'number') {
 
             reject("Please pass a number to sleep")
         }
         setTimeout(function() {
-            resolve("success")
+            const number = Math.floor(Math.random() * 100)
+            resolve(number)
         },delay)
     })
     
 }
 
-sleep("m")
-.then(function() {
-    console.log("slept for 3000ms")
-})
-.catch(function(err) {
-    console.log(err)
-})
+async function main () {
+    
+    try{
+        const response = await task("2000");
+        console.log(response)
+    }catch(e){
+        console.log("error: " + e)
+    }
+    try{
+        const response = await task(2000);
+        console.log(response)
+    }catch(e){
+        console.log("error: " + e)
+    }
+    
+}
+
+main()

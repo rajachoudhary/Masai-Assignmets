@@ -1,5 +1,5 @@
 let arr = [];
-console.log("raja")
+// console.log(arr)
 var submits = document.getElementById("submit");
 
 function add(e) {
@@ -18,21 +18,24 @@ function add(e) {
     arr.push(details)
    
     localStorage.setItem("info", JSON.stringify(arr))
+    
 
 
 }
 
 function empty(){
-    const data = JSON.parse( localStorage.getItem("info"))
-    console.log(data)
+    let data = JSON.parse(localStorage.getItem("info"))
+    
     if(data){
         data = arr
+        return data
     } 
+    
 }  
 
 window.addEventListener("load", function() {
-
-    submits.addEventListener("click",add)
     
+    submits.addEventListener("click",add)
+    empty() 
 })
 

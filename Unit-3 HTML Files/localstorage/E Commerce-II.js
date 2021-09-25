@@ -16,15 +16,11 @@
             ++count
             noOfItems.textContent = "Total Items" + " " + count
 
-
-
             let container = document.getElementById("container")
             let cartValue = value[i]
             
-            
-             mainDivs = document.createElement('div')
+            mainDivs = document.createElement('div')
            
-
             let h2 = document.createElement("h4")
             h2.textContent =cartValue.name
             mainDivs.appendChild(h2)
@@ -35,9 +31,10 @@
             
             let h51 = document.createElement("h5")
             h51.textContent = "Price :"+" "+cartValue.price
+            mainDivs.appendChild(h51)
+
             totalPrice += Number(cartValue.price)
             tPrice.textContent = "Total Price"+" "+totalPrice
-            mainDivs.appendChild(h51)
 
             container.appendChild(mainDivs)
             
