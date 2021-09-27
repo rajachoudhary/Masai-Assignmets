@@ -1,108 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+
+    />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     <title>Document</title>
     <style>
-        img{
-            height:300px;
-            width:200px;
-           margin: auto;
-        }
-        #container{
-            display: flex;
-            flex-wrap: wrap;
-        }
-        body{
-            background-color:black;
-            color:white;
-        }
-        .h1{
-            color:black;
-        }
-        .movie{
-            color:white
-        }
+      img {
+        height: 300px;
+        width: 200px;
+        margin: auto;
+      }
+      #container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      body {
+        background-color: black;
+        color: white;
+      }
+      .h1 {
+        color: black;
+      }
+      .movie {
+        color: white;
+      }
+      .img1{
+        height:50px;
+        width:100px;
+        padding: 5px;
+      }
     </style>
-</head>
-<body>
-    <div class="h1 text-center  m-3 movie">Movie Hub</div>
+  </head>
+  <body>
+    <div class="h1 text-center m-3 movie">Movie Hub</div>
     <div class="col col-3 text-center m-auto container">
-        <input type="text" id="movieName" placeholder="Movie Name">
-        <button for="text" class="h5 bg-success bg-gradient" id="search">Search</button>   
+      <input type="text" id="movieName" placeholder="Movie Name" />
+      <button for="text" class="h5 bg-success bg-gradient" id="search">
+        Search
+      </button>
     </div>
-    <div id="container" class="container justify-content-center">
-       
-    </div>
+    <div id="container" class="container justify-content-center"></div>
     <script>
-
-        var search = document.getElementById("search")
-        // createMovieCard(movieNames)
-        var movieNames =  document.getElementById("movieName")
-        window.addEventListener("load", function(){
-            search.addEventListener("click", getData)
-            // getData (movieNames)
-        })
-
-         function getData() {
-
-            return fetch(`http://www.omdbapi.com/?t=${movieNames.value}}&apikey=6d44b8e5`)
-            .then(function(response) {
-              //   console.log(response)
-                return response.json();
-            })
-            .then (function(response) {
-                console.log(response)
-                  createMovieCard(response)
-            })
-            .catch(function(error) {
-              //   console.log(error)
-            })
-         }
-            // if(response.length != undefined) {
-
-                function createMovieCard(response) {
-                    // console.log(response)
-                    const container = document.getElementById("container")
-                    container.innerHTML = "" 
+      var search = document.getElementById("search");
+      
+      var movieNames = document.getElementById("movieName");
+      window.addEventListener("load", function () {
+        search.addEventListener("click", getData);
         
-                    const div = document.createElement("div")
-                    div.className = "card p-3 col-3 m-3 bg-dark bg-gradient"
-                    var h4 = document.createElement("h4")
-                    h4.textContent = response.Title
-                    h4.className = "text-center"
-        
-                    var img = document.createElement("img")
-                    img.src = response.Poster
-                    
-                    var p = document.createElement("p")
-                    p.textContent = `imdbRating ${response.imdbRating}`
-                    p.className ="text-center mt-2 mb-0"
-                    
-                    var p1 = document.createElement("p")
-                    p1.textContent = `Runtime : ${response.Runtime}`
-                    p1.className = "text-center  mb-0 "
-        
-                    var p2 = document.createElement("p")
-                    p2.textContent = `Year : ${response.Year}`
-                    p2.className = "text-center"
-                    div.appendChild(h4)
-                    div.appendChild(img)
-                    div.appendChild(p)
-                    div.appendChild(p1)
-                    div.appendChild(p2)
-                    
-                    container.appendChild(div)
-                    
-                } 
-            // }
+      });
+
+      function getData() {
+        return fetch(
+          `http://www.omdbapi.com/?t=${movieNames.value}}&apikey=6d44b8e5`
+        )
+          .then(function (response) {
+           
+            return response.json();
+          })
+          .then(function (response) {
+           
+            createMovieCard(response);
+          })
+          .catch(function (error) {
+           
+          });
+      }
+
+      function createMovieCard(response) {
+        if (response.Title != undefined) {
             
-        
-        
-    </script>  
-</body>
+            if(response.imdbRating >= 8.5){
+
+                const container = document.getElementById("container");
+                container.innerHTML = "";
+      
+                var div = document.createElement("div");
+                div.className = "card p-3 col-3 m-3 bg-dark bg-gradient";
+
+
+                var h4 = document.createElement("h4");
+                h4.textContent = response.Title
+                h4.className = "text-center ";
+
+                var img1 = document.createElement("img");
+                img1.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB8n9-QEARwssuFxHh5-NY-iawPEdqOiB8qA&usqp=CAU"
+                img1.className = "img1"
+
+                var img = document.createElement("img");
+                img.src = response.Poster;
+      
+                var p = document.createElement("p");
+                p.textContent = `IMDb Rating ${response.imdbRating}`;
+                p.className = "text-center mt-2 mb-0";
+      
+                var p1 = document.createElement("p");
+                p1.textContent = `Runtime : ${response.Runtime}`;
+                p1.className = "text-center  mb-0 ";
+      
+                var p2 = document.createElement("p");
+                p2.textContent = `Year : ${response.Year}`;
+                p2.className = "text-center";
+
+                h4.appendChild(img1)
+                div.appendChild(h4);
+                div.appendChild(img);
+                div.appendChild(p);
+                div.appendChild(p1);
+                div.appendChild(p2);
+      
+                container.appendChild(div);
+                movieName.value = ""
+            } 
+            else {
+                const container = document.getElementById("container");
+                container.innerHTML = "";
+      
+                const div = document.createElement("div");
+                div.className = "card p-3 col-3 m-3 bg-dark bg-gradient";
+                var h4 = document.createElement("h4");
+                h4.textContent = response.Title;
+                h4.className = "text-center";
+      
+                var img = document.createElement("img");
+                img.src = response.Poster;
+      
+                var p = document.createElement("p");
+                p.textContent = `IMDb Rating ${response.imdbRating}`;
+                p.className = "text-center mt-2 mb-0";
+      
+                var p1 = document.createElement("p");
+                p1.textContent = `Runtime : ${response.Runtime}`;
+                p1.className = "text-center  mb-0 ";
+      
+                var p2 = document.createElement("p");
+                p2.textContent = `Year : ${response.Year}`;
+                p2.className = "text-center";
+                div.appendChild(h4);
+                div.appendChild(img);
+                div.appendChild(p);
+                div.appendChild(p1);
+                div.appendChild(p2);
+      
+                container.appendChild(div);
+                movieName.value = ""
+            }
+        } else {
+            container.innerHTML = "";
+            const img = document.createElement("img");
+            img.src = "https://media1.giphy.com/media/YyKPbc5OOTSQE/giphy.gif?cid=ecf05e470zodouavj5dwo2sfdg8eksf49uaaxnrmlnytlms7&rid=giphy.gif&ct=g"
+            img.className = "mt-5 col-9 "
+            container.appendChild(img)
+            movieName.value = ""
+        }
+      }
+    </script>
+  </body>
 </html>
