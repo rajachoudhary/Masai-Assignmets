@@ -4,7 +4,8 @@ const trainC  = ["s","t","u","v","w","X","Y","z"];
 
 async function checkAvailability(){
 
-    let promise = await new Promise(function(resolve,reject){
+    let promise = await new Promise(function(resolve,rej){
+
         const id = setInterval (function(){
             if(trainA.length < 5){
                 resolve (`Train A is available`)
@@ -38,7 +39,7 @@ function cancelTicket(){
         let trainA = document.getElementById("trainA")
         let trainB = document.getElementById("trainB")
         let trainC = document.getElementById("trainC")
-        
+
         if(index === 0){
            trainA.textContent = train.length
         }  
@@ -48,11 +49,15 @@ function cancelTicket(){
         if (index){
             trainC.textContent = train.length
         }
+        
+        setTimeout (function(){
+            train.push(Math.floor(Math.random() * 5))
+        },6000)
 
         setTimeout(function(){
             train.pop();
             visualize(train,ids[index])
-            console.log(ids[index])
+            console.log(index)
         },1000*speeds[index])
     })
 }
@@ -80,6 +85,7 @@ var id = setInterval(cancelTicket,1000)
 checkAvailability()
 .then(function(resolve){
     alert(resolve)
+    window.location.assign("booking.html")
 })
 .catch(function(err){
     console.log(err)

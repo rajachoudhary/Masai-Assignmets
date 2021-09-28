@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Ticket</title>
 </head>
 <body>
-    <div>
-        <div>
-            <label>Total Person in train A</label>
-            <div id ="trainA">0</div>
+    <div class="container col-6 display-6 text-center mt-3  p-5 bg-primary text-white ">
+        <div class="row ">
+            <div class="row border mt-1 p-2 mb-2 bg-dark text-white">
+                <label class="col-8">Availabel Seats in Train A</label>
+                <div id ="trainA" class="col-1 h1">0</div>
+            </div>
+            <div class="row border mt-3 p-2 mb-2 bg-dark text-white">
+                <label class="col-8">Availabel Seats in Train B</label>
+                <div id ="trainB" class="col-1 h1">0</div>
+            </div>
+            <div class="row border mt-3 p-2 mb-2 bg-dark text-white">
+                <label class="col-8">Availabel Seats in Train C</label>
+                <div id ="trainC" class="col-1 h1">0</div>
+            </div>
+            <div style="display: flex;" class="col ">
+                <div id="A" class="m-5"></div>
+                <div id="B"  class="m-5"></div>
+                <div id="C"  class="m-5"></div>
+            </div>
         </div>
-        <div>
-            <label>Total Person in train B</label>
-            <div id ="trainB">0</div>
-        </div>
-        <div>
-            <label>Total Person in train C</label>
-            <div id ="trainC">0</div>
-        </div>
-    </div>
-    <div style="display: flex;">
-        <div id="A"></div>
-        <div id="B"></div>
-        <div id="C"></div>
     </div>
     <script type="text/javascript" src="Tatkal Tciket.js"></script>
 </body>

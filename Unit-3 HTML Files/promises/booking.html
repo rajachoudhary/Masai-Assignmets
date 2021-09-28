@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Booking</title>
+</head>
+<style>
+    #ticket{
+        border: none;
+    }
+    h1{
+        color: rgb(192, 40, 86);
+        text-align: center;
+        text-decoration: underline;
+    }
+</style>
+<body >
+    <div class="container mt-5 col-3 card p-5" style="background-color: rgb(50, 50, 117);">
+        <h1>Tatkal Ticket</h1>
+        <div class="row ">
+            <label for="text" class="h4">Name</label>
+            <input type="text" id="name"/>
+        </div>
+        <div class="row mt-3">
+            <label for="number"class="h4">Name</label>
+            <input type="date" id="date"/>
+        </div>
+        <div class="row mt-3">
+            <label for="text" class="h4">Phone No</label>
+            <input type="text" id="phoneNo"/>
+        </div>
+        <button id="ticket" class="btn-lg btn-success mt-4 col-12  ">Book Ticket</button>
+    </div>
+    <script src="../promises/booking.js"></script>
+</body>
+</html>
