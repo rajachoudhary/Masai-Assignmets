@@ -59,16 +59,16 @@
         
       });
 
-      function getData() {
+      function getData() {      
         return fetch(
           `http://www.omdbapi.com/?t=${movieNames.value}&apikey=6d44b8e5`
         )
           .then(function (response) {
            
             return response.json();
+            console.log(response)
           })
           .then(function (response) {
-           
             createMovieCard(response);
           })
           .catch(function (error) {
