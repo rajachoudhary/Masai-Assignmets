@@ -15,7 +15,11 @@
 </style>
 <body>
     <div id="container" class="container"></div>
+    <div id="pagination"></div>
     <script>
+
+        window.addEventListener("load" ,display)
+
         function getData(){
          return fetch ( "http://localhost:3001/products")
             .then(function (response){
@@ -57,9 +61,27 @@
                 div.className = "card col-3 mt-5 mx-5 text-center p-5 bg-primary"
             }
         }
-        // display(response)
-        window.addEventListener("load" ,display)
+       
+        function createPagination(){
+            const div = document.getElementById("pagination")
+            div.innerHTML = null
+            const prev = document.createElement("button")
+            prev.textContent = "Previous"
+            prev.name = currentPage-1
+            if(currentPage === 1){
+                prev.disabled = true;
+            }
 
+            const current = document.createElement("button")
+            current.textContent = currentPage
+            current.name = currentPage
+            
+            const next = document.createElement("button")
+            next.textContent = "Next"
+            next.name = currentPage
+
+            div.append(prev, current, next)
+        }
     </script>
 </body>
 </html>
