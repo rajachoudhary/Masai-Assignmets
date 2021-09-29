@@ -4,21 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <title>Document</title>
 </head>
+<style>
+    #container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+</style>
 <body>
+    <div id="container" class="container"></div>
     <script>
         function getData(){
-         fetch ( `http://localhost:3001/products`)
+         return fetch ( "http://localhost:3001/products")
             .then(function (response){
                 return response.json()
                 console.log(response)
             })
-            // .then(function(response){
-            //     console.log(response)
-            // })
+            .then(function(response){
+                console.log(response)
+                display(response)
+            })
+            .catch(function(err){
+                
+                console.log(err)
+            })
         }
         getData()
+
+        function display (response){
+            
+            let container = document.getElementById("container")
+            let div;
+            for(let i=0; i<response.length; i++){
+                div = document.createElement("div")
+
+                var products = document.createElement("h3")
+                products.innerHTML = response[i].name
+
+                var price = document.createElement("h4")
+                price.textContent = response[i].price
+
+                var currency = document.createElement("h5")
+                currency.textContent = response[i].currency
+                console.log(response[i].currency)
+                var avai = document.createElement("h2")
+                avai.textContent = response[i].available_qty
+
+                div.append(products,price,currency,avai)
+                container.appendChild(div)
+                div.className = "card col-3 mt-5 mx-5 text-center p-5 bg-primary"
+            }
+        }
+        // display(response)
+        window.addEventListener("load" ,display)
+
     </script>
 </body>
 </html>
