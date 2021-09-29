@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const fetchData = ({url, api_key}) => {
+            return fetch(`${url}?access_key=${api_key}`)
+        }
+
+        fetchData({
+            url: "https://api.countrylayer.com/v2/all",
+            api_key:"c544002660b7faa7185799663580671"
+        })
+        .then(res => res.json())
+        .then(res => handleResponse(res))
+
+        const handleResponse = (arr)=>{
+            const result = []
+            console.log(arr)
+            for(response of arr){
+                const card = createcard(response)
+                result.push(card)
+            }
+            document.body.append(...result)
+        }
+
+        const createCard = ({name, capital}) => {
+            // console.log(name,capital)
+            const div = document.createElement("div")
+            div.textContent = name
+            const capitalElem = document.createElement("div")
+            capitalElem.textContent = capital
+
+            const card = document.createElement("div")
+            card.style.display = "flex"
+            card.style.gap = "3rem"
+            card.append(div,capitalElem)
+            return card
+        }
+    </script>
+</body>
+</html>
