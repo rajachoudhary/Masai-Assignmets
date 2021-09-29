@@ -17,8 +17,10 @@
     <div id="container" class="container"></div>
     <div id="pagination"></div>
     <script>
-
+        let currentPage = 1
+        let limit = 20
         window.addEventListener("load" ,display)
+        window.addEventListener("load" ,createPagination())
 
         function getData(){
          return fetch ( "http://localhost:3001/products")
@@ -79,7 +81,7 @@
             const next = document.createElement("button")
             next.textContent = "Next"
             next.name = currentPage
-
+            
             div.append(prev, current, next)
         }
     </script>
