@@ -1,9 +1,11 @@
+window.addEventListener("load",function(){
+    fetchData()
+})
 
 function fetchData (){
     fetch ("https://newsapi.org/v2/everything?q=india news&from=2021-08-30&sortBy=publishedAt&apiKey=64c316f7a2fa4897858df1e3aee33c73")
     .then(function(response){
-    
-        // console.log(response)
+     
         return response.json()
     })
     .then(function(response){
@@ -11,17 +13,16 @@ function fetchData (){
         console.log(response.articles)
     })
     .catch(function(error){
-        // console.log(error)
+       
     })
 }
-fetchData()
+
+
 
 function display(response){
 
     const newCard = document.getElementById("newsCard")
-    // newCard.innerHTML = ""
-
-    // console.log(response.articles.length)
+    
     for(let i=0 ; i<response.articles.length; i++){
         let div = document.createElement("div")
 
@@ -34,7 +35,7 @@ function display(response){
 
         let p = document.createElement("p")
         p.textContent=response.articles[i].content
-        p.className = "mt-2 lead card-footer"
+        p.className = "mt-2 lead card-footer font-monospace"
         console.log(response.articles[i].url)
         
         div.appendChild(h3)
