@@ -1,120 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie</title>
-</head>
-<style>
-#form{
-    padding-top: 100px;
-    width: 50%;
-    margin: auto;
-}
-#searchBox{
-    width: 80%;
-    height: 50px;
-    border: 1px dotted blue;
-    box-shadow: 1px 2px 20px red;
-    border-radius: 20px;
-    font-size: 25px;
-}
-#search{
-    padding: 15px;
-    margin-left: 10px;
-    background-color: rosybrown;
-    border: 0;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 10px;
-}
-#container{
-    width: 50%;
-    margin: auto;
-    padding-top: 100px;
-}
-#container>div>img{
-    height: 300px;
-    margin: 50px;
-}
-</style>
-<body>
-        <div id="form">
-            <input type="text" id="searchBox">
-        <button id="search">Search</button>
-        </div>
-        <div id="container"></div>
-
-<script>
-    window.addEventListener("load" ,function(){
-      const btn=document.getElementById('search')
-      btn.addEventListener("click",searchItem)
-    })
-
-  function  searchItem(){
-    var movieName=document.getElementById('searchBox').value
-    if(movieName==''){
-        alert('Enter Movie Name')
-        const container =document.getElementById('container')
-        container.innerHTML=""
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      border: 1px solid black;
+      height: 40px;
+     
     }
-    getMovieDetails(movieName)
-  }
-
-  function getMovieDetails(movieName){
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=92daab5d&t=${movieName}`)
-    .then(function(response){
-        return response.json()
-    })
-    .then(function(response){
-        displayMovie(response)
-        return
-    })
-    .catch(function(error){
-        alert('Enter Valid Movie')
-    })
-  }
-
-  function displayMovie(data){
-      const container =document.getElementById('container')
-        container.innerHTML=""
-
-        var div1=document.createElement('div')
-        var img=document.createElement('img')
-        img.src=data.Poster
-        div1.append(img)
-
-
-        var div2=document.createElement('div')
-        
-        var h3=document.createElement('h3')
-        h3.textContent=`Movie Name: ${data.Title}`
-        var p1 = document.createElement('p')
-        p1.textContent=`Release Year:: ${data.Year}`
-        var p2 = document.createElement('p')
-        p2.textContent=`Release Date:: ${data.Released}`
-        var p3 = document.createElement('p')
-        p3.textContent=`Rated by:: ${data.Rated}`
-        var p4 = document.createElement('p')
-        p4.textContent=`Playback Time :: ${data.Runtime}`
-        var p5 = document.createElement('p')
-        p5.textContent=`Director:: ${data.Director}`
-        var p6 = document.createElement('p')
-        p6.textContent=`Actors:: ${data.Actors}`
-        var p7 = document.createElement('p')
-        p7.textContent=`Language:: ${data.Language}`
-        var p8 = document.createElement('p')
-        p8.textContent=`Origin:: ${data.Country}`
-        var p9 = document.createElement('p')
-        p9.textContent=`Awards:: ${data.Awards}`
-        div2.append(h3,p1,p2,p3,p4,p5,p6,p7,p8,p9)
-
-      container.append(div1,div2)
-      container.style.display='flex'
-      document.getElementById('searchBox').value=''
-  }
-
- </script>
-</body>
+  </style>
+  <body>
+    <div class="container-fluid m-5">
+        <div class="row">
+            <div class="col-6 box p-2 bg-primary">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="box text-white">4</div>
+                    </div>
+                    <div class="col-8 text-white">
+                        <div class="box">8</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 box p-2">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="box">   
+                            <div class="row">
+                                <div class="col-6 p-1 bg-danger">
+                                    <div class="box"></div>
+                                </div>
+                                <div class="col-6 p-1 bg-success">
+                                    <div class="box"></div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="col-4">
+                        <div class="box">4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
 </html>
