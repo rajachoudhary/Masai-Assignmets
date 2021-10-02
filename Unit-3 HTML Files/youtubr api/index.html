@@ -22,7 +22,7 @@
             btn.addEventListener("click", handleSearch)
         })
         function getYoutubeSearchResults(q){
-            return fetch(`'https://youtube.googleapis.com/youtube/v3/search?q=${q}&key=AIzaSyBHWK_xA-VsJiWU7DhtqH-xXxCHcGm02LU'`)
+            return fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${q}&key=AIzaSyBHWK_xA-VsJiWU7DhtqH-xXxCHcGm02LU`)
             .then(res =>  res.json())
         }
 

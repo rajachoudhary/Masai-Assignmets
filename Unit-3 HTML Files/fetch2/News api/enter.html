@@ -19,20 +19,20 @@
             <button class="btn btn-danger" id="search">Search</button>
         </div>
         <div class="row col-5 navColor" id="navTextColor">
-            <div class="col h3"><a href="../fetch2/news1.html">Home</a></div>
-            <div class="col h3"><a href="../fetch2/sports.html">Sports</a></div>
-            <div class="col h3"><a href="../fetch2/enter.html">Entertainment</a></div>
-            <div class="col h3"><a href="../fetch2/tech.html">Technology</a></div>
+            <div class="col h3 justify-content-start"><a href="../News api/news1.html">Home</a></div>
+            <div class="col h3"><a href="../News api/sports.html">Sports</a></div>
+            <div class="col h3"><a href="../News api/enter.html">Entertainment</a></div>
+            <div class="col h3"><a href="../News api/tech.html">Technology</a></div>
         </div>
     </div>
     <div id="newsCard" class="conatiner col-7 text-center m-auto mt-5 row " ></div>
     <script>
       window.addEventListener("load",function(){
-    fetchData()
-})
+        fetchData()
+    })
 
 function fetchData (){
-    fetch ("https://newsapi.org/v2/everything?q=entertainment&from=2021-08-30&sortBy=publishedAt&apiKey=64c316f7a2fa4897858df1e3aee33c73")
+    fetch ("https://newsapi.org/v2/everything?q=entertainment&from=2021-10-01&to=2021-10-01&sortBy=popularity&apiKey=64c316f7a2fa4897858df1e3aee33c73")
     .then(function(response){
      
         return response.json()
