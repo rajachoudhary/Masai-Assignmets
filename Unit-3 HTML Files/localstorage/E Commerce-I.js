@@ -13,12 +13,12 @@ function handleAdd(e){
     let details = {
         name : userName,
         url : urls,
-        price : prices,
-        
+        price : prices    
     } 
 
     arr.push(details)
     localStorage.setItem('list',JSON.stringify(arr))
+    // console.log(list)
     const div = document.getElementById("lists")
     
     display(arr,div)
@@ -46,9 +46,9 @@ function display(list, div){
 
         divs.appendChild(h4)
         divs.appendChild(img)
-        divs.appendChild(h5)
-        
+        divs.appendChild(h5)    
     }
+    
     let btns = document.createElement('button')
     btns.textContent = "Add To Cart"
     divs.appendChild(btns)
@@ -110,7 +110,7 @@ function handleLoad(){
     }
 
     
-    console.log(arr)
+    // console.log(arr)
 }
 
 

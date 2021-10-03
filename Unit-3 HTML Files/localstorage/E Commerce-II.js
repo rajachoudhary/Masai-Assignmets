@@ -1,9 +1,9 @@
     let arr2 = []
         
     var value = JSON.parse( localStorage.getItem("inCart"))
-    // arr2.push(value)
-     
-    arr2.push(value)
+    localStorage.setItem("cartValue",JSON.stringify(arr2))
+    console.log(value)
+    // arr2.push(cartValue)
     var count = 0
     var totalPrice = 0
     var tPrice = document.getElementById("price")
