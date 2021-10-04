@@ -29,7 +29,7 @@ function handleAdd(e){
 function display(list, div){
    
     const  divContent = document.createElement('div')
-    
+    divContent.innerHTML = ""
     let divs ;
    
     for(let i = 0; i < list.length; i++){

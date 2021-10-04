@@ -1,9 +1,11 @@
     let arr2 = []
         
     var value = JSON.parse( localStorage.getItem("inCart"))
+    arr2.push(value)
+    console.log(arr2)
     localStorage.setItem("cartValue",JSON.stringify(arr2))
-    console.log(value)
-    // arr2.push(cartValue)
+    var storeValue = JSON.parse(localStorage.getItem("cartValue"))
+    
     var count = 0
     var totalPrice = 0
     var tPrice = document.getElementById("price")
@@ -11,7 +13,7 @@
     function load(){
         
         let mainDivs ;
-        for(let i = 0; i < value.length; i++){
+        for(let i = 0; i <arr2.length; i++){
 
             ++count
             noOfItems.textContent = "Total Items" + " " + count
@@ -48,8 +50,7 @@
     window.addEventListener("load", function(){
 
         load()
-        // loading()
+       
     })
-    // var count = document.getElementById("count")
-    // count.textContent = arr2.length
+   
     
