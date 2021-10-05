@@ -9,7 +9,7 @@ function swap (S,i,C){
 function permute(S,C,R){
     
     if(R===C){
-        console.log(S)
+        console.log(S.split("").join(" "))
     } else{
 
         for(let i=C; i<=R; i++){
@@ -24,6 +24,7 @@ function runProgram(input){
     input = input.split("\n")
     var N = input[0]
     var S = input[1].split(" ").join("")
+    // console.log(S[0])
     permute(S,0,N-1)
 }
 runProgram(`3

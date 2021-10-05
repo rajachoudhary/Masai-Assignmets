@@ -30,104 +30,139 @@
         </div>
     </div>
     <div id="newsCard" class="conatiner col-7 text-center m-auto mt-5 row " ></div>
+    <div id="pagination"></div>
     <script>
+        var currentPage = 1;
+        var limit = 3;
+        var pageSize = 1
+
         window.addEventListener("load",function(){
-    fetchData()
-})
-
-
-
-
-function fetchData (){
-    fetch ("https://newsapi.org/v2/everything?q=india&from=2021-10-01&to=2021-10-01&sortBy=popularity&apiKey=64c316f7a2fa4897858df1e3aee33c73")
-    .then(function(response){
-     
-        return response.json()
-    })
-    .then(function(response){
-        display(response)
-        // console.log(response.articles)
-    })
-    .catch(function(error){
-       
-    })
-}
-
-
-
-function display(response){
-
-    const newCard = document.getElementById("newsCard")
-    
-    for(let i=0 ; i<response.articles.length; i++){
-        let div = document.createElement("div")
-
-        let h3 = document.createElement("h3")
-        h3.textContent = response.articles[i].title
-        h3.className = "card-header"
-        let img = document.createElement("img")
-        img.src = response.articles[i].urlToImage
-        img.className = "newsImg"  
-
-        let p = document.createElement("p")
-        p.textContent=response.articles[i].content
-        p.className = "mt-2 lead card-footer font-monospace"
-        // console.log(response.articles[i].url)
-        
-        div.appendChild(h3)
-        div.appendChild(img)
-        div.appendChild(p)
-        div.className= "card m-3"
-        newCard.appendChild(div)
-    }
-}
-
-window.addEventListener("load", function(){
-    let btn = document.getElementById("search")
-    let input = document.getElementById("search-input")
-    btn.addEventListener("click", fetchData)
-    function fetchData (){
-        fetch (`https://newsapi.org/v2/everything?q=${input.value}&from=2021-10-01&to=2021-10-01&sortBy=popularity&apiKey=64c316f7a2fa4897858df1e3aee33c73`)
-        .then(function(response){
-         
-            return response.json()
+            fetchData()
+            pagination()
+            const paginatio = document.getElementById("pagination")
+            paginatio.addEventListener("click", handlePageChange)
         })
-        .then(function(response){
-            show(response)
-            console.log(response)
-        })
-        .catch(function(error){
-           console.log(error)
-        })
-    }
-    
-    function show(response){
 
-        const newCard = document.getElementById("newsCard")
-        newCard.textContent = ""
-        for(let i=0 ; i<response.articles.length; i++){
-            let div = document.createElement("div")
-    
-            let h3 = document.createElement("h3")
-            h3.textContent = response.articles[i].title
-            h3.className = "card-header"
-            let img = document.createElement("img")
-            img.src = response.articles[i].urlToImage
-            img.className = "newsImg"  
-    
-            let p = document.createElement("p")
-            p.textContent=response.articles[i].content
-            p.className = "mt-2 lead card-footer font-monospace"
-            console.log(response.articles[i].url)
-            
-            div.appendChild(h3)
-            div.appendChild(img)
-            div.appendChild(p)
-            div.className= "card m-3"
-            newCard.appendChild(div)
+        function handlePageChange (){
+            const pageNumber = parseInt(event.target.name)
+            // console.log(pageNumber)
+            currentPage = pageNumber 
         }
-    }
-})
+
+        function fetchData (page,pageSize){
+            page = page || 1;
+            // pageSize = pageSize || 5;
+            fetch (`https://newsapi.org/v2/everything?q=india&from=2021-10-01&to=2021-10-01&sortBy=popularity&page=${page}&pageSize=1&apiKey=64c316f7a2fa4897858df1e3aee33c73`)
+            .then(function(response){
+            
+                return response.json()
+            })
+            .then(function(response){
+                display(response)
+                // console.log(response)
+            })
+            .catch(function(error){
+            
+            })
+        }
+
+        function pagination(){
+            var div = document.getElementById("pagination")
+
+            var previous = document.createElement("button")
+            previous.textContent = "Previous"
+            if(currentPage === 1){
+                previous.disabled = true;
+            }
+            previous.name = currentPage-1
+
+            var current = document.createElement("button")
+            current.textContent = currentPage
+            current.name = currentPage
+
+            var next = document.createElement("button")
+            next.textContent = "Next"
+            next.name = currentPage+1
+
+            div.append(previous,current,next)
+
+        }
+
+
+
+        function display(response){
+
+            const newCard = document.getElementById("newsCard")
+            
+            for(let i=0 ; i<response.articles.length; i++){
+                let div = document.createElement("div")
+
+                let h3 = document.createElement("h3")
+                h3.textContent = response.articles[i].title
+                h3.className = "card-header"
+                let img = document.createElement("img")
+                img.src = response.articles[i].urlToImage
+                img.className = "newsImg"  
+
+                let p = document.createElement("p")
+                p.textContent=response.articles[i].content
+                p.className = "mt-2 lead card-footer font-monospace"
+                // console.log(response.articles[i].url)
+                
+                div.appendChild(h3)
+                div.appendChild(img)
+                div.appendChild(p)
+                div.className= "card m-3"
+                newCard.appendChild(div)
+            }
+        }
+
+        window.addEventListener("load", function(){
+            let btn = document.getElementById("search")
+            let input = document.getElementById("search-input")
+            btn.addEventListener("click", fetchData)
+            function fetchData (){
+                fetch (`https://newsapi.org/v2/everything?q=${input.value}&from=2021-10-01&to=2021-10-01&sortBy=popularity&apiKey=64c316f7a2fa4897858df1e3aee33c73`)
+                .then(function(response){
+                
+                    return response.json()
+                })
+                .then(function(response){
+                    show(response)
+                    console.log(response)
+                })
+                .catch(function(error){
+                console.log(error)
+                })
+            }
+            
+            function show(response){
+
+                const newCard = document.getElementById("newsCard")
+                newCard.textContent = ""
+                for(let i=0 ; i<response.articles.length; i++){
+                    let div = document.createElement("div")
+            
+                    let h3 = document.createElement("h3")
+                    h3.textContent = response.articles[i].title
+                    h3.className = "card-header"
+                    let img = document.createElement("img")
+                    img.src = response.articles[i].urlToImage
+                    img.className = "newsImg"  
+            
+                    let p = document.createElement("p")
+                    p.textContent=response.articles[i].content
+                    p.className = "mt-2 lead card-footer font-monospace"
+                    console.log(response.articles[i].url)
+                    
+                    div.appendChild(h3)
+                    div.appendChild(img)
+                    div.appendChild(p)
+                    div.className= "card m-3"
+                    newCard.appendChild(div)
+                }
+            }
+        })
 
     </script>
 </body>

@@ -1,30 +1,28 @@
-function swap (S,i,C){
-  // var p = S.split("")
-  var temp = S[i]
-  S[i] = S[C]
-  S[C] = temp
-  return S    
+function swap(str, a, b) {
+  var charArr = str.split("");
+  var temp = charArr[a];
+  charArr[a] = charArr[b];
+  charArr[b] = temp;
+  return charArr.join("");
 }
 
-function permute(S,C,R){
-  
-  if(R===C){
-      console.log(S)
-  } else{
-
-      for(let i=C; i<=R; i++){
-
-         S = swap(S,i,C)
-          permute(S,C+1,R)
-      }
+function fun(str, l, r) {
+  if (l == r) {
+    console.log(str.split("").join(" "));
+  } else {
+    for (var i = l; i <= r; i++) {
+      str = swap(str, i, l);
+      fun(str, l + 1, r);
+    }
   }
 }
 
-function runProgram(input){
-  input = input.split("\n")
-  var N = input[0]
-  var S = input[1].split(" ").join("")
-  permute(S,0,N-1)
+function runProgram(input) {
+  input = input.split("\n");
+  var n = Number(input[0]);
+  var arr = input[1].split(" ").join("");
+
+  fun(arr, 0, n - 1);
 }
 runProgram(`3
-1 2 3`)
+1 2 3`);

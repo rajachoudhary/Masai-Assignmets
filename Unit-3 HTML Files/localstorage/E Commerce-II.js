@@ -2,29 +2,32 @@
         
     var value = JSON.parse( localStorage.getItem("inCart"))
     arr2.push(value)
-    console.log(arr2)
-    localStorage.setItem("cartValue",JSON.stringify(arr2))
-    var storeValue = JSON.parse(localStorage.getItem("cartValue"))
+    localStorage.setItem("cart",JSON.stringify(arr2))
+    var value1 = JSON.parse( localStorage.getItem("cart"))
+    // console.log(value)
+    // console.log(arr2)
+    // localStorage.setItem("cartValue",JSON.stringify(arr2))
+    // var storeValue = JSON.parse(localStorage.getItem("cartValue"))
     
     var count = 0
     var totalPrice = 0
     var tPrice = document.getElementById("price")
     var noOfItems = document.getElementById("count")
-    function load(){
+    // function load(){
         
         let mainDivs ;
-        for(let i = 0; i <arr2.length; i++){
+        for(let i = 0; i <value1.length; i++){
 
             ++count
             noOfItems.textContent = "Total Items" + " " + count
 
             let container = document.getElementById("container")
-            let cartValue = value[i]
+            let cart1 = 1[i]
             
             mainDivs = document.createElement('div')
            
             let h2 = document.createElement("h4")
-            h2.textContent =cartValue.name
+            h2.textContent =cart1.name
             mainDivs.appendChild(h2)
             
             let img1 = document.createElement("img")
@@ -42,15 +45,15 @@
             
         }  
              
-    }
+    // }
     
 
      
     
-    window.addEventListener("load", function(){
+    // window.addEventListener("load", function(){
 
-        load()
+    //     load()
        
-    })
+    // })
    
     
