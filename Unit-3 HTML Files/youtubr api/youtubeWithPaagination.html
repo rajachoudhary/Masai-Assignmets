@@ -1,89 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
     <style>
-        .flex{
-            display: flex;
-        }
-        .gap{
-            gap:2rem;
-        }
-        .mt-2{
-            margin-top: 0.5rem;
-        }   
+      * {
+        background-color: rgb(12, 3, 3);
+      }
+      /* #ip {
+        padding-top: 50px;
+        width: 50%;
+        margin: auto;
+      } */
+      #ip > input {
+        width: 80%;
+        height: 50px;
+        background-color: rgb(112, 108, 108);
+        font-size: 30px;
+        color: white;
+        border-radius: 10px;
+      }
+     
+      #results {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 25% 25% 25% 25%;
+        margin: 50px;
+      }
+      .flex {
+        display: flex;
+        width: 30%;
+        margin: auto;
+      }
+      
+      .gap {
+        gap: 2rem;
+      }
+      .mt-2 {
+        margin-top: 0.5rem;
+      }
+      body{
+        background-color: black;
+      }
     </style>
-</head>
-<body>
-    <h1>Search</h1>
-    <input type="text" id="input">
-    <button id="btn">Search</button>
+  </head>
+  <body>
+    <div id="ip" class="container-fluid col mt-5 m-auto col-7">
+      <div class="row ">
+        <input type="text" id="input"  class="col-8 btn btn-dark"/>
+        <button id="btn" class="btn btn-dark ms-2 col-2">Search</button>
+      </div>
+    </div>
+
     <div id="results"></div>
     <div class="flex gap mt-2" id="pagination">
-        <button name="prev">Previous</button>
-        <button name="next">Next</button>
+      <button name="prev" class="btn btn-dark ms-2 col-3">Prev</button>
+      <button name="next" class="btn btn-dark ms-2 col-3">Next</button>
     </div>
     <script>
-        
-        var types={
-            video:"youtube#video",
-            channel:"youtube#channel"
+      var video = document.getElementById("results");
+      async function fetchingmain() {
+        let res = await fetch(
+          `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=india&key=AIzaSyBu1A1yUTY8T-DnNe6EUG9nLMuOz9eaBug&maxResults=20`
+        );
+        let data = await res.json();
+        let { items } = data;
+        items = items.filter((el) => {
+          return el.id.videoId != undefined;
+        });
+        items.forEach(({ id: { videoId } }) => {
+          let div = document.createElement("div");
+
+          div.innerHTML = `<iframe width="340px" height="280px" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+          video.appendChild(div);
+        });
+      }
+      fetchingmain();
+
+      const types = {
+        video: "youtube#video",
+        channel: "youtube#channel",
+      };
+      const pageType = {
+        next: "next",
+        prev: "prev",
+      };
+      Object.freeze(types);
+      let pageInfo = {
+        prevToken: null,
+        nextToken: null,
+      };
+
+      window.addEventListener("load", function () {
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", () => handleSearch());
+
+        const pagination = document.getElementById("pagination");
+        pagination.addEventListener("click", handlePageChange);
+      });
+
+      function handlePageChange() {
+        const type = event.target.name;
+        if (![pageType.next, pageType.prev].includes(type)) {
+          return false;
         }
-        const pageType={
-            next:"next",
-            prev:"prev"
+
+        const token =
+          type === pageType.next ? pageInfo.nextToken : pageInfo.prevToken;
+        console.log(token);
+        handleSearch(token);
+      }
+
+      function getYoutubeSearchResults({ q, pageToken = null }) {
+        if (pageToken) {
+          return fetch(
+            `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=AIzaSyBu1A1yUTY8T-DnNe6EUG9nLMuOz9eaBug&pageToken=${pageToken}&maxResults=20`
+          ).then((res) => res.json());
+        } else {
+          return fetch(
+            `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=AIzaSyBu1A1yUTY8T-DnNe6EUG9nLMuOz9eaBug&maxResults=20`
+          ).then((res) => res.json());
         }
-        Object.freeze(types)
+      }
 
-        let pageInfo={
-            prevToken:null,
-            nextToken:null,
-        }
+      function createYoutubeVideoCards(data) {
+        const div = document.createElement("div");
 
-        window.addEventListener("load",function(){
-            const btn =document.getElementById("btn")
-            btn.addEventListener("click",()=>handleSearch)
+        //ignore channel
+        // if(data.id.kind === types.channel){
+        //     return false
+        // }
 
-            const pagination=document.getElementById("pagination")
-            pagination.addEventListener("click",handlePageChange)
-
-        })
-
-        function handlePageChange(){
-            const type=event.target.name
-            if(![pageType.next,pageType.prev].includes(type)){
-                return false
-            }
-            const token= type ===pageType.next ? pageInfo.nextToken :pageInfo.prevToken;
-            handleSearch(token)
-        }
-        function getYoutubeSearchResults({q,pageToken=null}){
-            if(pageToken){
-                return  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=AIzaSyBHWK_xA-VsJiWU7DhtqH-xXxCHcGm02LU&pageToken=${pageToken}`)
-                .then(res=>res.json(){
-                    console.log(res)
-                })        
-            }
-            else{
-                return  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=AIzaSyBHWK_xA-VsJiWU7DhtqH-xXxCHcGm02LU`)
-                .then(res=>res.json())
-            }
-        }
-
-        function createYoutubeVideoCards(data){
-            const div=document.createElement("div")
-
-            //ignore channel
-            if(data.id.kind === types.channel){
-                return false
-            }
-
-            div.innerHTML=`<iframe
-             width="560" 
-             height="315"
+        div.innerHTML = `<iframe
+            width="340px" height="280px"
               src="https://www.youtube.com/embed/${data.id.videoId}"
                title="YouTube video player"
                 frameborder="0"
@@ -91,50 +148,41 @@
                  autoplay; clipboard-write; 
                  encrypted-media; gyroscope;
                   picture-in-picture"
-                   allowfullscreen></iframe>`
-                   return div
+                   allowfullscreen></iframe>`;
+        return div;
+      }
+
+      async function handleSearch(token) {
+        if (!token) {
+          pageInfo.nextToken = null;
+          pageInfo.prevToken = null;
         }
-
-        
-
-       async function  handleSearch(token){
-           const search = document.querySelector("#input").value
-           try{
-               const{
-                   items:results,
-                   pageInfo:{
-                       resultsPerPage,
-                       totalResults
-                   },
-                   nextPageToken,
-                   prevPageToken
-               }=await getYoutubeSearchResults({
-                   q:search,
-                   pageToken:token
-                //    pageToken:pageInfo.prevToken
-                })
-               console.log(results,resultsPerPage,totalResults)
-               
-               //set page token correctly
-               pageInfo.nextToken=nextPageToken ? nextPageToken :null
-               pageInfo.prevToken=prevPageToken ? prevPageToken :null
-
-               const allCards=[]
-               for(let video of results){
-                   const card = createYoutubeVideoCards(video)
-                   if(card){
-                       allCards.push(card)
-                   }
-               }
-               const resContainer = document.getElementById("results")
-               resContainer.innerHTML=null
-               resContainer.append(...allCards)
-           }
-           catch(err){
-
-           }
-       }
+        const search = document.querySelector("#input").value;
+        try {
+          const {
+            items: results,
+            pageInfo: { resultsPerPage, totalResults },
+            nextPageToken,
+            prevPageToken,
+          } = await getYoutubeSearchResults({
+            q: search,
+            pageToken: token,
+          });
+          console.log(results, resultsPerPage, totalResults);
+          pageInfo.nextToken = nextPageToken ? nextPageToken : null;
+          pageInfo.prevToken = prevPageToken ? prevPageToken : null;
+          const allCards = [];
+          for (let video of results) {
+            const card = createYoutubeVideoCards(video);
+            if (card) {
+              allCards.push(card);
+            }
+          }
+          const resContainer = document.getElementById("results");
+          resContainer.innerHTML = null;
+          resContainer.append(...allCards);
+        } catch (err) {}
+      }
     </script>
-
-</body>
+  </body>
 </html>
