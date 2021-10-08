@@ -6,6 +6,7 @@ function NoOfWays(N){
         return 0
     } 
     else {
+        console.log(N-1,N-3,N-5)
         return NoOfWays(N-1) + NoOfWays(N-3) + NoOfWays(N-5)
     }
 }

@@ -63,7 +63,9 @@
         function getYoutubeSearchResults({q,pageToken=null}){
             if(pageToken){
                 return  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=AIzaSyBHWK_xA-VsJiWU7DhtqH-xXxCHcGm02LU&pageToken=${pageToken}`)
-                .then(res=>res.json())        
+                .then(res=>res.json(){
+                    console.log(res)
+                })        
             }
             else{
                 return  fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${q}&key=AIzaSyBHWK_xA-VsJiWU7DhtqH-xXxCHcGm02LU`)

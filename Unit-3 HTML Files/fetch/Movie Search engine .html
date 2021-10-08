@@ -66,9 +66,9 @@
           .then(function (response) {
            
             return response.json();
-            console.log(response)
           })
           .then(function (response) {
+            console.log(response)
             createMovieCard(response);
           })
           .catch(function (error) {

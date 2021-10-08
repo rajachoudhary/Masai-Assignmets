@@ -23,7 +23,20 @@
     #container{
         border: 5px solid rgb(109, 32, 32);
         border-radius:50px;
+       
         
+    }
+    #movieContainer,#sortingLowToHigh{
+        display: flex;
+        flex-wrap: wrap;
+        /* width: 80%;  */
+        margin: auto;
+        justify-content: center;
+        margin-top: 200px;
+
+    }
+    #movieContainer >div,#sortingLowToHigh>div{
+        margin: 30px;
     }
 </style>
 <body>
@@ -32,9 +45,21 @@
             <a href="./Movie Website-I.html" class="navbar-brand nav-link mt-3">Home</a>
             <a href="./signup Page.html" class="navbar-brand nav-link mt-3" >SIGN UP </a>
             <a href="./loginPage.html" class="navbar-brand nav-link mt-3">Login</a>
+            <button type="button" class="btn btn-danger dropdown-toggle mt-3    " data-bs-toggle="dropdown" aria-expanded="false">
+              SORT
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" id="highToLow">High to low</a></li>
+              <li><a class="dropdown-item" href="#" id="lowToHigh">Low to high</a></li>
+            </ul>
         </div>
+        <!-- <div class="btn-group col"> -->
+          <!-- </div> -->
     </div>
     <div id="container" class="container bg-  mt-5 p-4"></div>
+    <div id="movieContainer"></div>
+    <div id="sortingLowToHigh"></div>
+
     <script type="text/javascript" src="Movie Webdite.js"></script>
 </body>
 </html>
