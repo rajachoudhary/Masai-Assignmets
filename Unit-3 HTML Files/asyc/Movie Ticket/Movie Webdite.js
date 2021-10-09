@@ -69,7 +69,7 @@ let movieList = [
 
 function showMovie(movieList) {
   const movieContainer = document.getElementById("movieContainer");
-  console.log(movieList)
+ 
   let div;
 
   movieList.map((element) => {
@@ -121,7 +121,7 @@ window.addEventListener("load", function () {
   // sortLowToHigh(lowArr)
   const lowToHigh = document.getElementById("lowToHigh")
   lowToHigh.addEventListener("click",function(){
-    let highToLow = document.getElementById("highToLow")
+    // let highToLow = document.getElementById("highToLow")
     let lowArr = []
     for (let i=0; i<movieList.length; i++){
       lowArr.push(movieList[i])
@@ -138,7 +138,7 @@ window.addEventListener("load", function () {
               lowArr[j] = lowArr[j+1]
               lowArr[j+1] = temp
           }
-        }
+        } 
       }
     }
     low(lowArr);
