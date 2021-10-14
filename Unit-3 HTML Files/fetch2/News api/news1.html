@@ -86,7 +86,7 @@
 
         function fetchData (page){
             
-            fetch (`https://newsapi.org/v2/everything?q=india&from=2021-10-01&to=2021-10-01&sortBy=popularity&pageSize=1&page=${page}&apiKey=64c316f7a2fa4897858df1e3aee33c73`)
+            fetch (`https://newsapi.org/v2/everything?q=india&from=2021-10-01&to=2021-10-01&sortBy=popularity&pageSize=5&page=${page}&apiKey=64c316f7a2fa4897858df1e3aee33c73`)
             .then(function(response){
             
                 return response.json()
