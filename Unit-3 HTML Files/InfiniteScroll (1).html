@@ -82,8 +82,8 @@ function display(result){
         <p>${result.body}</p>`
   container.append(div)      
 }
-getData()
-// document.addEventListener('DOMContentLoaded', getData);
+
+document.addEventListener('DOMContentLoaded', getData);
 window.addEventListener('scroll', () => {
   const {scrollTop,clientHeight ,scrollHeight} = document.documentElement
 	if (scrollTop +clientHeight >=scrollHeight) {
