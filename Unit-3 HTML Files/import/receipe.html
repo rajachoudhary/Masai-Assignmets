@@ -8,10 +8,39 @@
     <title>Recipe of the day</title>
 </head>
 <body>
-    <h1>Receipe Page</h1>
+    <div id="foodContainer"></div>
     <script type="module">
         import navbar from "./foodapi.js"
         document.body.innerHTML = navbar()
+
+        window.addEventListener("load", ()=>{
+            receipeOfTheDay()
+        })
+        function receipeOfTheDay(){
+
+            return fetch (`https://www.themealdb.com/api/json/v1/1/random.php`)
+            .then(response => response.json())
+            .then(response => 
+
+                displayData(response)
+            )
+            .catch(error => alert("something went wrong"))
+        }
+
+        function displayData(response){
+            const foodContainer= document.getElementById("foodContainer")
+            const div = document.createElement("div")
+            div.className = "mt-5 col-8 justify-content-center"
+            const h1 = document.createElement("h1")
+            h1.innerHTML = response.meals[0].strMeal
+            h1.className = "bg-dark text-white col-4"
+            const img = document.createElement("img")
+            img.src = response.meals[0].strMealThumb
+            img.className = "p-2 col-4 justify-content-center"
+           div.appendChild(h1)
+           div.appendChild(img)
+           foodContainer.appendChild(div)
+        }
     </script>
 </body>
 </html>
