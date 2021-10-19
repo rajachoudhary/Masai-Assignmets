@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <input  type="text"id="name" placeholder="Name"/>
+            <input type="number" id="phoneNo" placeholder="Number"/>
+            <button id="addUser">Add User</button>  
+        </div>
+        <div id="addData"></div>
+    </div>
+    <script>
+        const phoneNo = document.getElementById("phoneNo")
+        const name = document.getElementById("name")
+        const addUser = document.getElementById("addUser")
+        addUser.addEventListener("click", ()=>{
+            var addData = document.getElementById("addData")   
+            addData.innerHTML = "" 
+
+            var userName = document.createElement("h2")
+            userName.textContent = name.value
+            var showHide = document.createElement("button")
+            showHide.textContent = "Show"
+            let i=2
+            showHide.addEventListener("click", ()=>{
+            
+                
+                let phone = document.createElement("div")
+                phone.innerHTML = ""
+                if(i%2 === 0){ 
+                    event.stopImmediatePropagation()
+                    phone.textContent = phoneNo.value
+                    addData.append(phone)
+                    showHide.textContent = "Hide"
+                    i++
+                } else {
+                    event.stopImmediatePropagation()
+                    phone.textContent = ""
+                    showHide.textContent = "Show"
+                    --i
+                }
+                
+            })
+            addData.appendChild(userName)
+            
+            addData.appendChild(showHide)
+        })
+        
+    </script>
+</body>
+</html>
