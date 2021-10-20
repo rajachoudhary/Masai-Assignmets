@@ -1,4 +1,0 @@
-
-function getData(){
-    return fetch(``)
-}

@@ -7,11 +7,41 @@
     <title>Document</title>
 </head>
 <body>
+    <button><a href="./home.html">Home</a></button>
     <div>
         <input type="text" id="firstName"/>
-        <input type="email" id="email"></input>
+        <input type="email" id="email" placeholder="Email"></input>
         <button id="login">Login</button>
     </div>
-    <script src="./login.js"></script>
+    <script >
+    function getData(){
+        return fetch(`https://reqres.in/api/users?page=1`)
+        .then(res => res.json())
+        .then (res =>{
+            
+            checkData(res)
+        })
+    }
+
+    function checkData(res){
+        const firstName = document.getElementById("firstName").value
+        const email = document.getElementById("email").value
+       for(var i=0; i<res.data.length; i++){
+           console.log(res.data)
+        //    console.log(res.data[i].email)
+           if(res.data[i].email === email){
+               console.log("raja")
+           } else {
+               alert("wrong Email id")
+           }
+       }
+    }
+
+    window.addEventListener("load", ()=>{
+       
+        const login = document.getElementById("login")
+        login.addEventListener("click", getData)
+    })
+    </script>
 </body>
 </html>
