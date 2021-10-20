@@ -4,36 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    <button><a href="./home.html">Home</a></button>
-    <div>
-        <input type="text" id="firstName"/>
-        <input type="email" id="email" placeholder="Email"></input>
-        <button id="login">Login</button>
+    <div class="container card col-3 p-3 mt-5 bg-dark bg-gradient">
+        <button class=" justify-content-end"><a href="./home.html">Home</a></button>
+        <div class="  ">    
+            <input type="text" id="firstName" placeholder="First Name" class=" col-12 mt-3"/>
+            <input type="text" id="lastName" placeholder="Last Name"class="col-12 mt-3">
+            <input type="email" id="email" placeholder="Email" class="col-12 mt-3"></input>
+        </div>
+        <button id="login" class="btn btn-danger col-12 mt-3 ">Login</button>
+        
     </div>
     <script >
     function getData(){
         return fetch(`https://reqres.in/api/users?page=1`)
         .then(res => res.json())
-        .then (res =>{
-            
+        .then (res =>{ 
             checkData(res)
+        })
+        .catch(err=>{
+            console.log("error")
         })
     }
 
     function checkData(res){
-        const firstName = document.getElementById("firstName").value
-        const email = document.getElementById("email").value
-       for(var i=0; i<res.data.length; i++){
-           console.log(res.data)
-        //    console.log(res.data[i].email)
-           if(res.data[i].email === email){
-               console.log("raja")
-           } else {
-               alert("wrong Email id")
-           }
+        const firstName = document.getElementById("firstName")
+        const lastName = document.getElementById("lastName")
+        const email = document.getElementById("email")
+        for(var i=0; i<res.data.length; i++){
+            
+           if( email.value == res.data[i].email && firstName.value == res.data[i].first_name && lastName.value == res.data[i].last_name ){
+              window.location.assign("http://127.0.0.1:5500/unit3%20sprint2/home.html")
+               break;
+           } 
        }
     }
 

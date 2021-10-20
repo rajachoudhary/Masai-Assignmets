@@ -8,7 +8,25 @@
 </head>
 <body>
     <button><a href="./home.html">Home</a></button>
+    <div>
+        <input type="text" id="search">
+        <button id="submit">Submit</button>
+    </div>
+    
     <script >
+        const search = document.getElementById("search").value
+        window.addEventListener("load",()=>{
+            search.addEventListener("click", fetchData)
+            
+        })
+        function fetchData (){
+            return fetch(`https://api.github.com/search/users?q=${search}`)
+            .then(res => res.json())
+            .then (res => getData(res))
+            .catch(err => console.log("error"))
+        }
+
+        function
 
     </script>
 </body>
