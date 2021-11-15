@@ -18,7 +18,7 @@ function handleAdd(e){
 
     arr.push(details)
     localStorage.setItem('list',JSON.stringify(arr))
-    // console.log(list)
+    
     const div = document.getElementById("lists")
     
     display(arr,div)

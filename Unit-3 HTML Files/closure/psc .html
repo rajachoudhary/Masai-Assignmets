@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function updateFunc2(){
+            console.log(inputThrottle.value)
+            outputThrottle.textContent = inputThrottle.value
+        }
+
+        function debouncer(func,delay){
+            let id;
+            return function(){
+                // if id exist
+                // then clear the previous timeout
+                console.log("previous id value is" + id)
+                if(id){
+                    clearTimeout(id)
+                }
+                id = setTimeout(()=>{
+                    func()
+                },delay)
+            }
+        }
+
+        function throttle(func,delay){
+            // when my last call was made
+            let lastCall = 0
+            return function(){
+                // find the time when new call has made
+                const now = Date.now()
+                // i need to know the diff
+                const diff = now - lastCall;
+                // if the diff is gfrater than delay
+                // then invoke the function
+                if(diff>= delay){
+                    func()
+                    lastCall = now
+                } else{
+                    console.log("you need to try again in " + (delay - diff)ms)
+                }
+                // othewise i ignore it
+            }
+        }
+        const updateWithDebouncer = debouncer(updatefunc,500)
+        const updateWithThrottle = throttle(updateFunc2,2000)
+    </script>
+</body>
+</html>

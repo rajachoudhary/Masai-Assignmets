@@ -19,7 +19,6 @@ function subset(eStr,N,arr,zero){
         var len = num.length
        var output =  odd(num,len-1)
         if(output % 2 != 0){
-            console.log(output%2)
             count++
         }
     }
@@ -37,10 +36,10 @@ function runProgram(input){
     var N = Number(input[0])
     var arr = input[1].split(" ").map(Number)
     subset("",N-1,arr,0)
-    // console.log(count)
+    console.log(count)
 }
 
-runProgram(`3
+runProgram(`2
 -2 4`)
 
-// console.log(-2%2)
+console.log((-8+-4+1)%2)
