@@ -1,0 +1,9 @@
+.joinBtn{
+  margin:10px 0 ;
+  background:teal;
+  color: white;
+  padding:0.5rem 1rem;
+  border-Radius:30px;
+  font-Size:25px;
+  border:none;
+}
