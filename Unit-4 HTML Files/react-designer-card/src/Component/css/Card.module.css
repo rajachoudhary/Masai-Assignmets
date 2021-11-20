@@ -1,0 +1,44 @@
+.headerSize {
+  font-size: 35px;
+  margin: 30px 0;
+  margin-left: 30px;
+}
+
+.pizzaImage {
+  height: 400px;
+  width: 500px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.paragraph {
+  font-size: 25px;
+  padding: 0 2rem;
+  color: rgb(61, 57, 57);
+  line-height: 2rem;
+}
+
+.container {
+  width: 500px;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+#detailDisplay {
+  display: flex;
+  margin: 30px 0;
+  flex-grow: auto;
+  font-size: 22px;
+  padding: 0 2rem;
+  color: rgb(61, 57, 57);
+}
+#detailDisplay > div:nth-child(1) {
+  flex-grow: 1;
+  font-size: 25px;
+}
+#detailDisplay > div:nth-child(2) {
+  flex-grow: 1;
+}
+#detailDisplay > div:nth-child(3) {
+  flex-grow: 1;
+}
