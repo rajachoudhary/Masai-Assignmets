@@ -1,17 +1,22 @@
 function root(K){
-    let low = 1
-    let high = K
+    let low = 0;
+    let high = K;
+    let ans = 0;
     while(low <= high){
-        let mid = low + (Math.floor(high-low)/2)
-        console.log(mid)
-        if(Math.round(mid*mid) === K){
-            return mid
-        } else if (Math.round(mid*mid) > K){
+        let mid = parseInt(low + (high-low)/2)
+    //    console.log(object)
+        if(mid*mid === K){  
+            ans = mid 
+            break 
+        } else if (mid*mid > K){
             high = mid-1
+            
         } else {
             low = mid+1
+            ans = mid
         }
     }
+    return ans;
 }
 function runProgram(input){
     input = input.split("\n").map(Number)
