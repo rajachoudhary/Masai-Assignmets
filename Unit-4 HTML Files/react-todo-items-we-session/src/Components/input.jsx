@@ -14,8 +14,8 @@ function Tasks ()  {
         title:input,
         status:false
     }
-      let newTasks = [...tasks,payload]
-      setTasks(newTasks)
+    let newTasks = [...tasks,payload]
+    setTasks(newTasks)
   }
   
   return (
