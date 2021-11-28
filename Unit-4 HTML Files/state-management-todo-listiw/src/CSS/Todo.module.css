@@ -1,0 +1,47 @@
+.input {
+  height: 50px;
+  width: 300px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(26, 199, 141);
+  font-size: 25px;
+}
+.addButton {
+  font-size: 25px;
+  margin-left: 30px;
+  width: 100px;
+  height: 50px;
+  border-radius: 100px;
+  border: none;
+  background-color: orange;
+}
+
+.todoContainer {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 600px;
+  margin: auto;
+  margin-top: 30px;
+  background-color: rgb(178, 194, 33);
+}
+.todoContainer > div {
+  margin-left: 50px;
+  font-size: 25px;
+  color: rgb(35, 160, 35);
+}
+.todoContainer > button:nth-child(2),
+.todoContainer > button:nth-child(3) {
+  font-size: 20px;
+  font-weight: bold;
+  height: 40px;
+  margin-top: 30px;
+  margin-left: 100px;
+  background-color: red;
+  padding: 5px;
+}
+.completed {
+  font-size: 20px;
+  width: 300px;
+  margin-top: 30px;
+}
