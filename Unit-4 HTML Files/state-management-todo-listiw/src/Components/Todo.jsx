@@ -42,7 +42,7 @@ const Todo = () => {
         ))}
       <div>
         <button
-          className(={style.completed}
+          className={style.completed}
           onClick={() => setCompleted(!completed)}
         >
           Show Completed
