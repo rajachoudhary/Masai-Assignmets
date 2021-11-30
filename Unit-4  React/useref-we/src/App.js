@@ -13,7 +13,7 @@ export default function App() {
 
   const startTimer= ()=> {
     if(timeRef.current === null){
-      timeRef.current = setState(()=>{
+      timeRef.current = setInterval(()=>{
         setState((prev)=> prev+1)
       },1000)
     }
