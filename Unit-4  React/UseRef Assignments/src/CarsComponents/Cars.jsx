@@ -38,8 +38,14 @@ const Cars = ()=>{
            {cars.map((item)=>{
                return (
               <div key={item.id}>
-                <div>{item.name}</div>
-                <div>{item.type}</div>
+                <div> Name :{item.name}</div>
+                <div>Type: {item.type}</div>
+                <div>Year: {item.year}</div>
+                <div> Price: {item.price}</div>
+
+                <div >
+                    <img src={item.image} style={{height:"300px",width:"500px"}}/>
+                </div>
               </div>
                )
            })}

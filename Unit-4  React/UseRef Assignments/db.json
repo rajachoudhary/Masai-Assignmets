@@ -6,7 +6,7 @@
       "type": "New Taigun",
       "year":2016,
       "price":"Rs 10,54, 200.00",
-      "image":"url(https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/taigun/highlights/Taigun-Side.png)"
+      "image":"https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/taigun/highlights/Taigun-Side.png"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "type": "The T-Roc",
       "year":2017,
       "price":"Rs 6,54, 200.00",
-      "image":"url(https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/t-roc/T-Roc-Sideshot.png)"
+      "image":"https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/t-roc/T-Roc-Sideshot.png"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "type": "Polo GT",
       "year":2018,
       "price":"Rs 18,54, 200.00",
-      "image":"url(https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/polo-gt/highlights/volkswagen-polo-gt-side-view-1.png)"
+      "image":"https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/polo-gt/highlights/volkswagen-polo-gt-side-view-1.png"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "type": "Polo",
       "year":2019,
       "price":"Rs 14,54, 200.00",
-      "image":"url(https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/polo/highlights/Volkswagen-Model-Polo.png)"
+      "image":"https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/polo/highlights/Volkswagen-Model-Polo.png"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "type": "Polo Mat Edition",
       "year":2020,
       "price":"Rs 12,54, 200.00",
-      "image":"url(https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/polo-gt/matt-edition/Polo-Matt-Edition-Side-View.png)"
+      "image":"https://www.volkswagen.co.in/idhub/content/dam/onehub_pkw/importers/in/models/polo-gt/matt-edition/Polo-Matt-Edition-Side-View.png"
     }
   ],
   "purchased": [
