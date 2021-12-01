@@ -29,6 +29,7 @@ const Cars = ()=>{
             console.log(err);
           });
     };
+
     if (isLoading) {
         return <div>...loading</div>;
     }
@@ -38,14 +39,14 @@ const Cars = ()=>{
            {cars.map((item)=>{
                return (
               <div key={item.id}>
-                <div> Name :{item.name}</div>
+                <div style={{fontsize:"35px"}}> Name :{item.name}</div>
                 <div>Type: {item.type}</div>
                 <div>Year: {item.year}</div>
                 <div> Price: {item.price}</div>
-
                 <div >
                     <img src={item.image} style={{height:"300px",width:"500px"}}/>
                 </div>
+                <button>Buy Now</button>
               </div>
                )
            })}
