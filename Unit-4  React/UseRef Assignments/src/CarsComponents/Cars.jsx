@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useState,useEffect} from "react"
-// import React from "react"
+import React from "react"
 
 const getCars = () => {
     const config = {
@@ -22,22 +22,27 @@ const Cars = ()=>{
         return getCars()
           .then((res) => {
             setCars(res.data);
+            console.log(res.data)
             setIsLoading(false);
           })
           .catch((err) => {
             console.log(err);
           });
     };
-
+    if (isLoading) {
+        return <div>...loading</div>;
+    }
     return (
         <div>
           <div>
-            {cars.map((item) => (
+           {cars.map((item)=>{
+               return (
               <div key={item.id}>
                 <div>{item.name}</div>
                 <div>{item.type}</div>
               </div>
-            ))}
+               )
+           })}
           </div>
           
         </div>
