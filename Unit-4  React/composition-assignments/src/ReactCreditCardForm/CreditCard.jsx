@@ -43,16 +43,13 @@ const CardDetail = styled.div`
     >p{
         padding-right:35px;
         font-weight:bold;
-        // border:1px solid black;
         font-size:8px;   
     }
     >div:nth-child(1){
         padding-right:63px;
-        // border:1px solid black;
     }
     >div:nth-child(2){
         padding-right:35px;
-        // border:1px solid black;
     }
 `
 const CreditCard = () => {
