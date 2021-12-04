@@ -1,10 +1,12 @@
 import ReactNavigationBar from "./Components/ReactNavigationBar";
 import ReactSideBar  from "./Components/ReactSideBar";
+import CreditCard from "./ReactCreditCardForm/CreditCard";
 function App() {
   return (
     <div>
       {/* <ReactSideBar/> */}
-      <ReactNavigationBar/>
+      {/* <ReactNavigationBar/> */}
+      <CreditCard/>
     </div>
   );
 }
