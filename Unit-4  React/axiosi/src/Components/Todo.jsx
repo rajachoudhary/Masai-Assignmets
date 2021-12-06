@@ -76,6 +76,23 @@ const Todo = () => {
       }
     });
   };
+
+  const handleToggle = async(id,status) => {
+    try{
+      const config = {
+        url:`https://json-server-mocker-masai.herokuapp.com/tasks/${id}`,
+        method:"patch",
+        data: {
+          status:!status
+        }
+      }
+      await axios(config)
+    }
+    catch(err){
+
+    }
+    handleGetTodos()
+  }
   const markEverythingComplete = async () => {
     try {
       const ids = todo.map((item) => item.id);
@@ -101,15 +118,16 @@ const Todo = () => {
           style={{ display: "flex", justifyContent: "center", margin: "30px" }}
         >
           <div style={{ padding: "5px" }}>{item.title}</div>
-          <div style={{ padding: "5px" }}>
+          <button style={{ padding:"5px",marginLeft:"15px" }} onClick={()=>handleToggle(item.id,item.status)}>
             {item.status ? "Done" : "Not Done"}
-          </div>
+          </button>
           <button
             onClick={() => handleDelete(item.id)}
-            style={{ padding: "5px" }}
+            style={{ padding: "5px",marginLeft:"15px"  }}
           >
             DELETE
           </button>
+         
         </div>
       ))}
       <div>
