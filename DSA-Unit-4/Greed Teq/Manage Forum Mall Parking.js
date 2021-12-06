@@ -8,10 +8,11 @@ function runProgram(input){
     dep.sort((a,b)=>a-b)
     
     let count = 0
-    for(var j=0; j<arr.length; j++){
+    for(var j=1; j<arr.length; j++){
 
     
         if(arr[j] < dep[j-1]){
+            console.log(arr[j],dep[j-1])
             count++
         }
     }
@@ -20,9 +21,9 @@ function runProgram(input){
     } else {
         console.log("Possible")
     }
-       console.log(count) 
+    // console.log(count) 
     
 }
-runProgram(`2
-4 3 6 7 11
-9 4 10 9 14`)
+runProgram(`5
+1 2 3 5 4
+6 6 6 6 5`)
