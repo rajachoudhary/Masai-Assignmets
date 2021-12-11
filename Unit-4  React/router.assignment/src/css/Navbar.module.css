@@ -1,0 +1,8 @@
+.navbar{
+    justify-content: center;
+    gap: 3rem;
+    font-size: 25px;
+    display: flex;
+    width: 400px;
+    margin: auto;
+}
