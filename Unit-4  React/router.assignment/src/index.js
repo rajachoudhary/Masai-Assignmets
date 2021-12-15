@@ -1,16 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './Components/Navbar';
 import { AllRoute } from './Route/AllRote';
+import { ProductNavbar } from './React Route Dynamic Route/Components/Navbar';
+import { ProductRoutes } from './React Route Dynamic Route/All Routes/AllRoutes';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    {/* First assignment
     <Navbar/>
     <AllRoute/>
+    First assignment */}
+    <ProductNavbar/>
+    <ProductRoutes/>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
