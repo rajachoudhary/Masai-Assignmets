@@ -1,0 +1,17 @@
+.container{
+  text-align:center;
+}
+
+.card {
+  width: 300px;
+  margin: auto;
+  padding: 10px;
+}
+.card>div{
+  font-size: 25px;
+}
+.card>img{
+  width:100px;
+  height:100px;
+  border-radius: 50px
+}
