@@ -1,0 +1,33 @@
+{
+  "mens":[
+    {
+      "brand":"Levi's",
+      "name":"Jeans",
+      "Length":28,
+      "price":1000,
+      "id":0
+    },
+    {
+      "brand":"Denim",
+      "name":"T-shirt",
+      "Length":"XL",
+      "price":5000,
+      "id":1
+    },
+    {
+      "brand":"Puma",
+      "name":"Shoes",
+      "Length":8,
+      "price":6000,
+      "id":2
+    },
+    {
+      "brand":"Nike",
+      "name":"Shirt",
+      "Length":"XL",
+      "price":5000,
+      "id":3
+    }
+  ]
+  
+}
