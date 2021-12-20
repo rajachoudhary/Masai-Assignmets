@@ -13,7 +13,7 @@ const  reducer = (state, action) => {
     }
 }
 
-const Incrementcounter = (amount) => ({type:"INCREMENT_COUNTER",payload:amount})
+const incrementCounter = (amount) => ({type:"INCREMENT_COUNTER",payload:amount})
 class Store {
     #state
     #reducer
@@ -36,11 +36,30 @@ class Store {
         return () => {
             this.#listener = this.#listener.filter(a=>a!==callback)
         }
-        notify(){
-            for(let listener of this.#listener){
-                listener(this.#state)
-            }
+    }
+    notify(){
+        for(let listener of this.#listener){
+            listener(this.#state)
         }
     }
 }
+const store = new Store(reducer,{count:1})
+const unsubscribe_one = store.subscribe(()=>{
+    console.log("somehting  has changed 1")
+})
+
+const unsubscribe_two = store.subscribe(()=>{
+    console.log("somehting  has changed 2")
+})
+
+const unsubscribe_three = store.subscribe(()=>{
+    console.log("somehting  has changed 3")
+})
+
+console.log(store.getState())
+const action = incrementCounter(1)
+store.dispatch(action)
+unsubscribe_three()
+store.dispatch(action)
+store.dispatch(action)
 
