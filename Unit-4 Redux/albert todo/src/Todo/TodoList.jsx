@@ -14,7 +14,7 @@ function TodoItem({ title, status, onDelete, id, onToggle }) {
 
 function TodoList() {
   const { todos } = useSelector((state) => {
-    return {
+    return {  
       todos: state.todos
     };
   }, shallowEqual);

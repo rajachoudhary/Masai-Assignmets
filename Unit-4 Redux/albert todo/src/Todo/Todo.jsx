@@ -16,7 +16,7 @@ function Todo() {
   };
   return (
     <div>
-      <TodoInput onAdd={handleAdd} />
+      <TodoInput onAdd={handleAdd}/>
       <TodoList />
     </div>
   );
