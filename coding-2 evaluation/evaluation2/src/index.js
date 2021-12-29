@@ -6,13 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AllRouter } from './All Route/Route';
 import { Navbar } from './Navbar/navbar';
-
+import {Provider} from "react-redux"
+import { store } from './Pages/Home/Redux/store';
+// import {store  } from "module";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <Provider store={store}>
     {/* <App /> */}
     <Navbar/>
     <AllRouter/>
+    </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
