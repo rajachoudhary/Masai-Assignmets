@@ -20,7 +20,7 @@ export const Reducer = (state=initState,action)=>{
         case proConstants.GET_FETCH_SUCCESS: {
           return {
             ...state,
-            todos: action.payload.pro,
+            pro:[...state.prod, action.payload.pro],
             isLoading: false
           };
         }

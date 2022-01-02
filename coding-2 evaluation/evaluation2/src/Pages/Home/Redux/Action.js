@@ -9,11 +9,11 @@ export const fetchRequest = () => {
     };
   };
   
-  export const fetchSuccess = (data) => {
+  export const fetchSuccess = (pro) => {
     return {
       type: proConstants.GET_FETCH_SUCCESS,
       payload: {
-        todos: data
+        pro:pro
       }
     };
   };
@@ -27,11 +27,11 @@ export const fetchRequest = () => {
     };
   };
 
-  export const getData = () => (dispatch) => {
+  export const getData = (dispatch) => {
     
     const requestAction = fetchRequest();
     dispatch(requestAction);
-    return fetch("http://localhost:3000/product")
+    return fetch("http://localhost:3000/products")
       .then((res) => res.json())
       .then((res) => {
         //success
