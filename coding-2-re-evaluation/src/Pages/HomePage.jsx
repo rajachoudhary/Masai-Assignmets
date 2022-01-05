@@ -1,7 +1,11 @@
-export const HomePage = ()=>{
+import { useState } from "react"
+
+export const HomePage = ({handleSearch})=>{
+    const [title,setTitle] = useState("")
     return(
-        <div>
-            <h1>homepage</h1>
+        <div style={{width:"300px",margin:"auto",padding:"10px"}} >
+            <input type="text" placeholder="Search User" value={title} onChange={(e)=>setTitle(e.target.value)}/>
+            <button onClick={()=>handleSearch(title)}>SEARCH</button>
         </div>
     )
 }
