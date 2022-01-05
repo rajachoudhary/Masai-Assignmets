@@ -1,23 +1,23 @@
-import { Router, Switch } from "react-router-dom"
+import { Route, Router, Switch } from "react-router-dom"
 import { HomePage } from "../Pages/HomePage"
 import { LoginPage } from "../Pages/LoginPage"
+import { SearchPage } from "../Pages/SearchPage"
 // import { loginPage } from "../Pages/LoginPage"
 
-import { SearchPage } from "../Pages/SearchPage"
 
 export const AllRoute = ()=>{
     return(
         <div>
             <Switch>
-                <Router exact path="/">
+                <Route exact path="/">
                     <HomePage/>
-                </Router>
-                <Router exact path="/searchPage">
+                </Route>
+                <Route exact path="/searchPage">
                     <SearchPage/>
-                </Router>
-                <Router exact path="/login">
+                </Route>
+                <Route exact path="/login">
                     <LoginPage/>
-                </Router>
+                </Route>
             </Switch>
         </div>
     )
