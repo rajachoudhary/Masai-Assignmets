@@ -27,3 +27,22 @@ export const gitFailure = ()=>{
         
     };
 }
+
+export const gitSearch = (text,dispatch) => {
+    
+    const requestAction = gitFailure();
+    dispatch(requestAction);
+    return fetch(`https://api.github.com/search/repositories?q=${text}`)
+      .then((res) => res.json())
+      .then((res) => {
+        //success
+        console.log(res);
+        const successAction = gitSuccess(res);
+        dispatch(successAction);
+      })
+      .catch((res) => {
+        // failure
+        const failureAction = gitFailure();
+        dispatch(failureAction);
+      });
+  };

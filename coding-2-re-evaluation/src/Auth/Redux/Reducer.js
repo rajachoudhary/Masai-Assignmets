@@ -4,7 +4,7 @@ import { authConstants } from "./ActionType";
 const initState = {
     isAuth :false
 }
-export const Reducer = (state=initState, action)=>{
+export const AuthReducer = (state=initState, action)=>{
     switch (action.type) {
         case authConstants.LOGIN_SUCCESS: {
          

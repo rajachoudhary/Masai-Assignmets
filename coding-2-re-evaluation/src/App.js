@@ -7,8 +7,8 @@ import { Login } from "./Pages/LoginPage";
 import { AllRoute } from "./Router/AllRoute";
 
 export default function App() {
-  const isAuth = useSelector((state) => state.isAuth);
-//   console.log(state)
+  const isAuth = useSelector((state) => state.auth.isAuth);
+    
 
   return isAuth ? (
     <div className="App">
