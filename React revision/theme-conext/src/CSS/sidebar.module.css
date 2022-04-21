@@ -1,0 +1,18 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 3%;
+
+  padding-left: 15px;
+}
+
+.profile {
+  margin-bottom: 140px;
+  border-radius: 50%;
+}
+
+.plus {
+  margin-top: 150px;
+  margin-bottom: 50px;
+}

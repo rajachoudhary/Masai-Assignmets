@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+}
+.dashboard{
+ 
+margin-left: 35px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 42px;
+/* color: black; */
+}
+
+  .dashboardContainer{
+      display: flex;
+      gap:2rem;
+    
+  }
