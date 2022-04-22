@@ -24,6 +24,7 @@ export const Navbar = () => {
         try {
             const res = await axios.post( "https://reqres.in/api/login/", state );
             if(res){
+                console.log(res)
                 setToken(res.data.token)
                 setIsAuth(false)
             }
