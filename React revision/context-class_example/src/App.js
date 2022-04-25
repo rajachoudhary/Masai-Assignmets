@@ -6,16 +6,18 @@ import { AboutUs } from './Pages/AboutUs';
 import { Users } from './Pages/Users';
 import { Login } from './Pages/Login';
 import { Contact } from './Pages/Contact';
+import { UserDetails } from './Pages/UserDetails';
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar  />
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="aboutUs" element={<AboutUs/>}/>
         <Route path="users" element={<Users/>}/>
+        <Route path="users/:id" element={<UserDetails/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="contact" element={<Contact/>}/>  
       </Routes>

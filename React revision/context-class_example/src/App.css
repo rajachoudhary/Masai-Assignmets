@@ -1,0 +1,26 @@
+.App{
+    text-align: center;
+    
+}
+.navlink{
+    display: flex;
+    gap: 2rem;
+    font-size: 25px;
+    padding: 15px;
+    background-color: black;
+    color: white !important;
+    justify-content: center;
+
+}
+.Form{
+    width: 20%;
+    margin: auto;
+    margin-top: 50px;
+}
+.inputForm {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 10px 0;
+    /* display: block; */
+}

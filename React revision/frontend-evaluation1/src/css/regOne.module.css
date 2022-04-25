@@ -1,0 +1,19 @@
+.regOne,.regTwo{
+    text-align: center;
+    width: 20%;
+    margin: auto;
+}
+.regOne >div, .regTwo>div{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.userData{
+    width: 20%;
+    margin: auto;
+}
+.userData >div{
+    padding: 10px;
+    font-size: 25px;
+
+}
