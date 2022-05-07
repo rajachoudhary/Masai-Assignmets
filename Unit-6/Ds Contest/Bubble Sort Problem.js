@@ -4,7 +4,7 @@ function runProgram(input){
     let arr = input[1].split(" ").map(Number)
     for (let i = 0; i < N; i++) {
         
-        for()
+        
         
     }
 }
