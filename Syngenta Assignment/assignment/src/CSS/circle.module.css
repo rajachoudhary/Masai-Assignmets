@@ -1,0 +1,17 @@
+.circleContainer{
+    display: flex;
+    gap: 2rem;
+    padding: 20px;
+    border: 1px solid rgb(237, 232, 232);
+    width: 55%;
+    margin: auto;
+    background-color: rgb(248, 245, 245);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;;
+    margin-top: 50px;
+    
+}
+.circleContainer > div {
+   height: 150px;
+   width: 150px;
+   border-radius: 50%;
+}

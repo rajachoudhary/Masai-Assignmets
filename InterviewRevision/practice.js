@@ -55,5 +55,25 @@
 // let x = calc[0]
 // console.log(x(5))
 // console.log(x(5))
+// var a ;
+// a = 1
+// console.log(a)
+console.log(20/2)
 
 
+let N = 256
+let value = N
+for (let i = 0; i < N; i++) {
+   
+    let num = value/2
+    value = num
+    if(num === 1){
+        console.log("Yes")
+        break
+    } else if (num - Math.floor(num) != 0){
+        console.log("No")
+        break
+    } 
+    
+}
+// console.log(2.25/2)
