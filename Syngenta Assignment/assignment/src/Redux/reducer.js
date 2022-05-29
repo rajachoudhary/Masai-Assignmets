@@ -13,7 +13,7 @@ export const reducer = (state = initialData,{type,payload})=>{
         case GET_COLOR:{
             return{
                 ...state,
-                randomColor:payload,
+                randomColor:payload.sort((a,b)=>a.id-b.id)
             }
         }
         case GET_CIRCLE:{
