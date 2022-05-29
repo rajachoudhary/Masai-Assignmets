@@ -6,6 +6,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
+    background-color: #172329;
     
 }
 .DataContainer>div{
